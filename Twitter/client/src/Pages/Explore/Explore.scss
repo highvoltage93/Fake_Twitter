@@ -1,0 +1,35 @@
+.explore{
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    h1{
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+    &_left{
+        width: 60%;
+    }
+    &_right{
+        width: 35%;
+        img{
+            max-height: 290px;
+            width: 100%;
+        }
+        &_form{
+            margin-top: 15px;
+            overflow: hidden;
+            button{
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+    }
+
+    &_wrap{
+        margin-bottom: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}

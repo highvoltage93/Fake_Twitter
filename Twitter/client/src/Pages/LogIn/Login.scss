@@ -1,0 +1,24 @@
+@import '../../App.scss';
+
+.login{
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    img{
+        width: 55px;
+        height: 55px;
+        object-fit: cover;
+        margin-top: 15px;
+        margin-bottom: 5px;
+    }
+    h1{
+        font-size: 23px;
+    }
+}
+.login_to{
+    margin-top: 20px;
+    color: $blue_color;
+    font-weight: 400;
+    font-size: 15px;
+    display: block;
+}

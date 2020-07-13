@@ -1,0 +1,27 @@
+@import '../../../App.scss';
+
+
+.button{
+    padding: 0 20px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 20px;
+    border: 1px solid $blue-color;
+    margin: 0 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.button.blue{
+    background: $blue-color;
+    color: #ffffff;
+    &:hover{
+        background: rgb(26, 145, 218);
+    }
+}
+.button.white{
+    color: $blue-color;
+    background: #ffffff;
+    &:hover{
+        color: rgb(26, 145, 218);
+    }
+}

@@ -1,0 +1,17 @@
+.exploreUser{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    width: 45%;
+    img{
+        width: 45px;
+        height: 45px;
+        border-radius: 10%;
+        margin-right: 10px;
+        object-fit: cover;
+    }
+    p{
+        font-size: 15px;
+        font-weight: 700;
+    }
+}

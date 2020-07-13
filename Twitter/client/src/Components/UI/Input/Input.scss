@@ -1,0 +1,32 @@
+@import '../../../App.scss';
+
+.input_circle{
+    background: $light-blue-color2;
+    color: $black-color;
+    height: 30px;
+   border-radius: 10px;
+   padding: 0 10px;
+   min-width: 300px;
+   font-size: 15px;
+}
+.input_circle::placeholder{
+    color: $black-color;
+}
+.default_input{
+    border-bottom: 2px solid $grey-color;
+    width: 100%;
+    margin-bottom: 20px;
+    height: 30px;
+    padding-left: 10px;
+    background: rgb(232, 240, 254);
+    transition: .3s all;
+    font-size: 15px;
+    height: 40px;
+    &:focus{
+        border-bottom: 2px solid $blue-color;
+        transition: .3s all;
+    }
+    &::placeholder{
+        font-size: 15px;
+    }
+}

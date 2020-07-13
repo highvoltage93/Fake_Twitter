@@ -1,0 +1,30 @@
+{
+  "name": "twitter",
+  "version": "1.0.0",
+  "description": "MERN",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon  index.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run start\" \"npm run client\""
+  },
+  "keywords": [
+    "MERN(Mongo",
+    "Express",
+    "React",
+    "Node)"
+  ],
+  "author": "RL",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.23",
+    "multer": "^1.4.2"
+  },
+  "devDependencies": {
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.4"
+  }
+}

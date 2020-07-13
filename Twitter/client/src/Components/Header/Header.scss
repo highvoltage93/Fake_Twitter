@@ -1,0 +1,27 @@
+@import '../../App.scss';
+
+header{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $light-blue-color;
+
+    .logo{
+        color: $blue-color;
+        font-size: 20px;
+        margin-right: 40px;
+        &:hover{
+            opacity: .2;
+            transition: .3s all;
+        }
+    }
+
+    .input_circle{
+        margin-right: 50px;
+        width: 400px;
+    }
+    .container{
+        display: flex;
+        justify-content: space-between;
+    }
+}
