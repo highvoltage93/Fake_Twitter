@@ -1,0 +1,65 @@
+@import '../../App.scss';
+
+.tweet{
+
+    border: 1px solid $light-blue-color;
+    padding: 10px;
+
+    &_top{
+        display: flex;
+        align-items: center;
+        img{
+            width: 40px;
+            height: 40px;
+            border-radius: 100%;
+            margin-right: 10px;
+        }
+        a{
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 7px;
+            color: $black-color;
+        }
+        p{
+            font-size: 10px;
+            font-weight: 500;
+            color: $grey-color;
+        }
+    }
+
+    &_content{
+        margin-top: 8px;
+
+        p{
+            font-size: 17px;
+            font-weight: 500;
+        }
+        img{
+            max-width: 100%;
+            margin-top: 10px;
+            border-radius: 10px;
+            max-height: 270px;
+        }
+    }
+
+    &_panel{
+        display: flex;
+        padding-top: 10px;
+        div{
+            width: 25%;
+            display: flex;
+            align-items: center;
+            svg{
+                width: 16px;
+                fill: $grey-color;
+                margin-right: 10px;
+            }
+
+            span{
+                font-size: 15px;
+                font-weight: 500;
+                color: $grey-color;
+            }
+        }
+    }
+}

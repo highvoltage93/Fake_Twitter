@@ -1,0 +1,125 @@
+@import '../../App.scss';
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    &_content{
+        width: 60%;
+        border: 1px solid $light-blue-color;
+    }
+    &_top{
+        min-height: 20px;
+        border-left: 1px solid $light-blue-color;
+        padding: 5px 0;
+        padding-left: 40px;
+        h1{
+            font-size: 17px;
+            font-weight: 900;
+            margin-bottom: 5px;
+        }
+        p{
+            font-size: 13px;
+            color: $grey-color;
+        }
+    }
+    &_poster{
+        height: 200px;
+        width: 100%;
+    }
+
+    &_info{
+        display: flex;
+        margin-top: -68px;
+        padding: 0 15px;
+
+        &_avatar{
+            width: 135px;
+            height: 135px;
+            border: 2px solid #ffffff;
+            border-radius: 100%;
+        }
+    }
+
+    &_data{
+        padding-left: 25px;
+        &_email{
+            font-size: 13px;
+            color: $grey-color;
+        }
+        h2{
+            font-size: 16px;
+            font-weight: 900;
+            color: black;
+        }
+        &_status{
+            font-size: 15px;
+            margin-top: 12px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        &_joined{
+            font-size: 16px;
+            color: $grey-color;
+            margin-top: 5px;
+            display: inline;
+            margin-right: 20px;
+            & svg{
+               margin-right: 10px; 
+            }
+        }
+
+        &_location{
+            display: inline;
+            font-size: 16px;
+            color: $grey-color;
+
+            & svg{
+                margin-right: 10px; 
+             }
+        }
+        &_fol{
+            display: flex;
+            padding-top: 9px;
+            a{
+                font-size: 16px;
+                color: $grey-color;
+                margin-right: 20px;
+                span{
+                    color: $black-color;
+                    font-weight: 900;
+                    margin-right: 7px;
+                }
+
+                &:hover{
+                   border-bottom: 1px solid black;
+                }
+            }
+        }
+    }
+
+    &_panel{
+        height: 50px;
+        display: flex;
+        align-items: center;
+        a{
+            font-weight: 700;
+            font-size: 15px;
+            line-height: 17px;
+            color: #657786;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 2px solid $grey-color;
+
+            &.active{
+                color: $blue-color;
+                border-bottom: 2px solid $blue-color;
+            }
+        }
+    }
+
+    
+}
