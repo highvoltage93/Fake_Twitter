@@ -1,10 +1,10 @@
 import React from 'react';
 import './Button.scss'
  
-const Button = (props) => {
+const Button = ({disable = false, color, children}) => {
     return (
         <>
-            <button className={`button ${props.color}`}>{props.children}</button>
+            <button disabled={disable} className={`button ${color}`}>{children}</button>
         </>
     );
 }

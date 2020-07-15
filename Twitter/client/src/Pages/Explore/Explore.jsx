@@ -128,6 +128,7 @@ const Explore = (props) => {
                         placeholder="Email"
                         type="email"
                         require={true}
+                        name="email"
                     />
                     <Input
                         placeholder="Password"
@@ -135,6 +136,7 @@ const Explore = (props) => {
                         require={true}
                         max={12}
                         min={2}
+                        name="name"
                     />
 
                     <Button color="blue">Log In</Button>

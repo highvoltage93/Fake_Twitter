@@ -10,6 +10,11 @@
     margin: 0 10px;
     font-size: 14px;
     font-weight: 600;
+
+    &:disabled{
+        opacity: .5;
+        cursor: default;
+    }
 }
 .button.blue{
     background: $blue-color;

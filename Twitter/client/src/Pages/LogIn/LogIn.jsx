@@ -5,7 +5,7 @@ import './Login.scss'
 import Input from '../../Components/UI/Input/Input';
 import Button from '../../Components/UI/Button/Button';
 
-const Login = () => {
+const Login = (props) => {
     return (
         <div className="login">
             <img src={Logo} alt="" />
@@ -15,6 +15,8 @@ const Login = () => {
                     placeholder="Email"
                     type="email"
                     require={true}
+                    auto={true}
+                    name='email'
                 />
                 <Input
                     placeholder="Password"
@@ -22,6 +24,8 @@ const Login = () => {
                     require={true}
                     max={12}
                     min={2}
+                    auto={true}
+                    name='password'
                 />
 
                 <Button color="blue">Log In</Button>

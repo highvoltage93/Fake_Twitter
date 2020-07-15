@@ -19,8 +19,12 @@ const Header = () => {
                     />
                 </div>
                 <div>
-                    <Button color="blue">Log In</Button>
-                    <Button color="white">Registration</Button>
+                    <NavLink to="/login">
+                        <Button color="blue">Log In</Button>
+                    </NavLink>
+                    <NavLink to="/registration">
+                        <Button color="white">Registration</Button>
+                    </NavLink>
                 </div>
             </div>
         </header>

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Input.scss'
 
-const Input = ({ type, placeholder, require = false, max = 15, min = 3 }) => {
+const Input = ({ type,name, placeholder, require = false, max = 55, min = 3, auto = true }) => {
     return (
         <>
             <input
@@ -11,6 +11,8 @@ const Input = ({ type, placeholder, require = false, max = 15, min = 3 }) => {
                 required={require}
                 maxLength={max}
                 minLength={min}
+                autoComplete={auto.toString()}
+                name={name}
             />
         </>
     );

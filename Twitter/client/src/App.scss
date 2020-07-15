@@ -2,13 +2,14 @@ $blue-color:  #1DA1F2;
 $light-blue-color:  rgb(204, 214, 221);
 $light-blue-color2:  #e8f0fe;
 $black-color:  #14171A;
-$grey-color:  #657786;;
+$grey-color:  #657786;
+$yellow-color:  rgb(255, 173, 31);
 
 
 *{
   margin: 0;
   padding: 0;
-  transition: .3s all;
+  transition: .1s all;
   outline: none;
   text-decoration: none;
   border: none;
@@ -33,4 +34,12 @@ body{
 input,
 input::placeholder{
   font-family: 'Nunito', sans-serif;
+}
+.App_wrapper{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.app_content{
+  width: calc(100% - 100px);
 }
