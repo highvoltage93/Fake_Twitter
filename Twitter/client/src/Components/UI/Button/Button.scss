@@ -30,3 +30,13 @@
         color: rgb(26, 145, 218);
     }
 }
+
+.button.yellow{
+    color: #ffffff;
+    border: 1px solid $yellow-color;
+   
+    background: $yellow-color;
+    &:hover{
+        border: 1px solid $blue-color;
+    }
+}

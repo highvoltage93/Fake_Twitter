@@ -8,6 +8,7 @@
     &_top{
         display: flex;
         align-items: center;
+        position: relative;
         img{
             width: 40px;
             height: 40px;
@@ -24,6 +25,46 @@
             font-size: 10px;
             font-weight: 500;
             color: $grey-color;
+        }
+        &_dot{
+            position: absolute;
+            right: 10px;
+            top: 5px;
+            width: 8px;
+            height: 8px;
+            transform: rotate(45deg);
+            cursor: pointer;
+            border-bottom: 1px solid rgb(101, 119, 134);
+            border-right: 1px solid rgb(101, 119, 134);
+        }
+        &_dop{
+            visibility: hidden;
+            opacity: 0;
+            z-index: -1;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            min-width: 140px;
+            padding: 10px;
+            background-color: rgba(255,255,255,1.00);
+            box-shadow: rgba(101, 119, 134, 0.2) 0px 0px 15px, rgba(101, 119, 134, 0.15) 0px 0px 3px 1px;
+        
+            span{
+                cursor: pointer;
+                font-size: 16px;
+                display: flex;
+                align-items: center;
+                svg{
+                    margin-right: 10px;
+                    width: 20px;
+                    fill: rgb(224, 36, 94);
+                }
+            }
+            &.visible{
+                visibility: visible;
+                opacity: 1;
+                z-index: 1;
+            }
         }
     }
 

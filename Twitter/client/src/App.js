@@ -7,6 +7,7 @@ import Login from './Pages/LogIn/LogIn';
 import Registration from './Pages/Registration/Registration';
 import MainPage from './Pages/MainPage/MainPage';
 import NavBar from './Components/NavBar/NavBar';
+import My_Tweets from './Pages/My_Tweets/My_Tweets';
 
 function App(props) {
   let auth = true
@@ -24,6 +25,7 @@ function App(props) {
             {auth && <NavBar />}
             <div className="app_content">
               <Route exact path="/app/profile" component={MainPage} />
+              <Route exact path="/app/home" component={My_Tweets} />
             </div>
           </div>
 

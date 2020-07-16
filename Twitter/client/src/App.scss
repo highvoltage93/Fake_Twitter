@@ -1,5 +1,5 @@
 $blue-color:  #1DA1F2;
-$light-blue-color:  rgb(204, 214, 221);
+$light-blue-color:  rgb(230, 236, 240);
 $light-blue-color2:  #e8f0fe;
 $black-color:  #14171A;
 $grey-color:  #657786;
@@ -32,7 +32,9 @@ body{
   width: 100%;
 }
 input,
-input::placeholder{
+textarea,
+input::placeholder,
+textarea::placeholder{
   font-family: 'Nunito', sans-serif;
 }
 .App_wrapper{
