@@ -1,4 +1,5 @@
-const { Schema } = require("mongoose");
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema
 
 
 const TweetSchema = new Schema({
@@ -12,13 +13,16 @@ const TweetSchema = new Schema({
 
     },
     ava_author: {
-
+        type: String
     },
     date: {
-
+        type: Date,
+        default: new Date(Date.now()).toLocaleString()
     },
     text: {
+        type: String
+    }
 
-    },
+})
 
-}
+module.exports = mongoose.model('Tweet', TweetSchema)

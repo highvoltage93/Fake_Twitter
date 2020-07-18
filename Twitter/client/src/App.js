@@ -1,31 +1,45 @@
 import React from 'react';
 import './App.scss';
-import Header from './Components/Header/Header';
+import HeaderContainer from './Components/Header/HeaderContainer';
 import { Route } from 'react-router-dom';
 import Explore from './Pages/Explore/Explore';
-import Login from './Pages/LogIn/LogIn';
-import Registration from './Pages/Registration/Registration';
-import MainPage from './Pages/MainPage/MainPage';
+import LoginContainer from './Pages/LogIn/LoginContainer';
+import RegistrationContainer from './Pages/Registration/RegistrationContainer';
+import MainpageContainer from './Pages/MainPage/MainpageContainer';
 import NavBar from './Components/NavBar/NavBar';
-import My_Tweets from './Pages/My_Tweets/My_Tweets';
+import My_TweetsContainer from './Pages/My_Tweets/My_TweetsContainer';
+import setAuthToken from './middleware/auth_middlewre'
+import store from './Store/store';
+import { loadThunk } from './Store/actions'
+import { connect } from 'react-redux';
+
 
 function App(props) {
-  let auth = true
+
+  if (localStorage.token) {
+    setAuthToken(localStorage.token)
+  } 
+
+  React.useEffect(() => {
+    store.dispatch(loadThunk())
+  }, [])
+
+  let auth = props.auth
 
   return (
     <>
       <div className="App">
-        <Header />
+        <HeaderContainer />
         <div className="container">
           <Route exact path="/explore" component={Explore} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/registration" component={Registration} />
+          <Route exact path="/login" component={LoginContainer} />
+          <Route exact path="/registration" component={RegistrationContainer} />
 
           <div className="App_wrapper">
             {auth && <NavBar />}
             <div className="app_content">
-              <Route exact path="/app/profile" component={MainPage} />
-              <Route exact path="/app/home" component={My_Tweets} />
+              <Route exact path="/profile" component={MainpageContainer} />
+              <Route exact path="/home" component={My_TweetsContainer} />
             </div>
           </div>
 
@@ -36,4 +50,10 @@ function App(props) {
   );
 }
 
-export default App;
+let mapStateToProps = (state) => {
+  return {
+      auth: state.auth.isAuth
+  }
+}
+
+export default connect(mapStateToProps, null)(App)

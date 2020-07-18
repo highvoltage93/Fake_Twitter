@@ -1,5 +1,5 @@
 {
     "PORT": 5678,
-    "JWTSecret": "my_inique_JWT_Secret",
+    "JWTSecret": "my_JWT_seckret_key",
     "MONGODB": "mongodb+srv://test:12345@cluster0.mldk8.azure.mongodb.net/twitter"
 }

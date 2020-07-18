@@ -3,13 +3,13 @@ import './My_Tweets.scss'
 import Button from '../../Components/UI/Button/Button'
 import Tweet from '../../Components/Tweet/Tweet'
 
-const My_Tweets = () => {
+const My_Tweets = ({user, avatar, fullName}) => {
     return (
         <div className="main_content tweetPage">
             <h1>Home</h1>
             <div className="tweet_wrap">
                 <div className="tweet_wrap_post">
-                    <img src="https://media-cdn.tripadvisor.com/media/photo-s/19/8d/35/ba/villages-nature-paris.jpg" alt="" />
+                    <img src={avatar} alt="" />
                     <div>
                         <textarea
                             className="tweet_wrap_post_textarea"
@@ -24,11 +24,11 @@ const My_Tweets = () => {
             </div>
             <div className="line"></div>
             <Tweet
-                name="Rob Gronkowski"
+                name={fullName}
                 text='Its first tweet'
                 tweet_img="https://i.insider.com/5a77dce785cdd41d008b4f89?width=1100&format=jpeg&auto=webp"
                 date={new Date(Date.now()).toLocaleString()}
-                ava="https://media-cdn.tripadvisor.com/media/photo-s/19/8d/35/ba/villages-nature-paris.jpg"
+                ava={avatar}
             />
         </div>
     );

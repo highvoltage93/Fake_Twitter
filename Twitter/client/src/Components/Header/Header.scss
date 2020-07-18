@@ -25,3 +25,24 @@ header{
         justify-content: space-between;
     }
 }
+
+.header_info{
+    display: flex;
+    align-items: center;
+    p{
+        font-size: 16px;
+        font-weight: 500;
+        margin-right: 10px;
+    }
+
+    img{
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+    }
+    a{
+        font-weight: 700;
+        margin-left: 10px;
+        color: $blue-color
+    }
+}
