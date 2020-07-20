@@ -4,23 +4,22 @@ const Schema = mongoose.Schema
 
 const TweetSchema = new Schema({
     tweet_img: {
-
-    },
-    name_author: {
-
-    },
-    id_author: {
-
-    },
-    ava_author: {
         type: String
     },
-    date: {
+    tweet_date: {
         type: Date,
         default: new Date(Date.now()).toLocaleString()
     },
-    text: {
+    tweet_text: {
         type: String
+    },
+    tweet_author: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    pinned: {
+        type: Boolean,
+        default: false
     }
 
 })

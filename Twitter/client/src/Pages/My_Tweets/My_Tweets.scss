@@ -27,6 +27,9 @@
         div{
             width: 100%;
         }
+        form{
+            width: 88%;
+        }
 
         &_textarea{
             width: 100%;
@@ -42,7 +45,6 @@
     }
     &_panel{
         display: flex;
-        padding-left: 65px;
     }
 }
 

@@ -1,13 +1,13 @@
 import React, {useEffect} from 'react';
 import Registration from './Registration';
 import { connect } from 'react-redux';
-import { registration_Thunk } from '../../Store/actions';
+import { registration_Thunk } from '../../Store/auth_actions';
 import { Redirect } from 'react-router-dom';
 
 const RegistrationContainer = (props) => {
 
     if(props.authRedirect){
-        return <Redirect to={"/home"}/>
+        return <Redirect to={"/"}/>
     }
 
     return (

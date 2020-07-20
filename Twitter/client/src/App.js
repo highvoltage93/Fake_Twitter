@@ -10,7 +10,7 @@ import NavBar from './Components/NavBar/NavBar';
 import My_TweetsContainer from './Pages/My_Tweets/My_TweetsContainer';
 import setAuthToken from './middleware/auth_middlewre'
 import store from './Store/store';
-import { loadThunk } from './Store/actions'
+import { loadThunk } from './Store/auth_actions'
 import { connect } from 'react-redux';
 
 
@@ -39,7 +39,7 @@ function App(props) {
             {auth && <NavBar />}
             <div className="app_content">
               <Route exact path="/profile" component={MainpageContainer} />
-              <Route exact path="/home" component={My_TweetsContainer} />
+              <Route exact path="/" component={My_TweetsContainer} />
             </div>
           </div>
 

@@ -3,6 +3,7 @@ const config = require('config')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const authRoute = require('./routes/auth')
+const tweetRoute = require('./routes/tweet')
 
 
 express.use(bodyParser.urlencoded({ extended: true }))
@@ -24,3 +25,4 @@ express.listen(PORT, () => console.log('Server started on', PORT))
 
 
 express.use('/auth', authRoute)
+express.use('/tweets',tweetRoute)

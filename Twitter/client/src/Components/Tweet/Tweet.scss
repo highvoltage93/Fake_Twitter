@@ -1,9 +1,15 @@
 @import '../../App.scss';
 
 .tweet{
-
+    transition: .5s all;
     border: 1px solid $light-blue-color;
     padding: 10px;
+    transition: .4s all;
+
+    &:hover{
+        background: $light-blue-color;
+        transition: .4s all;
+    }
 
     &_top{
         display: flex;
@@ -36,6 +42,10 @@
             cursor: pointer;
             border-bottom: 1px solid rgb(101, 119, 134);
             border-right: 1px solid rgb(101, 119, 134);
+
+            &:hover{
+                box-shadow: rgba(41, 110, 167, 0.603) 2px 1px 15px, rgba(68, 127, 175, 0.705) 2px 2px 3px 1px;
+            }
         }
         &_dop{
             visibility: hidden;
@@ -48,12 +58,19 @@
             padding: 10px;
             background-color: rgba(255,255,255,1.00);
             box-shadow: rgba(101, 119, 134, 0.2) 0px 0px 15px, rgba(101, 119, 134, 0.15) 0px 0px 3px 1px;
-        
+            
+           
             span{
                 cursor: pointer;
                 font-size: 16px;
                 display: flex;
                 align-items: center;
+                margin-bottom: 10px;
+
+                &:hover{
+                    color: rgb(224, 36, 94);
+                }
+
                 svg{
                     margin-right: 10px;
                     width: 20px;
@@ -64,6 +81,7 @@
                 visibility: visible;
                 opacity: 1;
                 z-index: 1;
+                padding-top: 13px;
             }
         }
     }
@@ -74,6 +92,7 @@
         p{
             font-size: 17px;
             font-weight: 500;
+            word-break: break-all;
         }
         img{
             max-width: 100%;

@@ -16,7 +16,7 @@ const Header = ({ auth, avatar, fullName, logout }) => {
                 <div>
                     {
                         auth
-                            ? <NavLink to="/home" className="logo"><FontAwesomeIcon icon={faHashtag} /></NavLink>
+                            ? <NavLink to="/" className="logo"><FontAwesomeIcon icon={faHashtag} /></NavLink>
                             : <NavLink to="/explore" className="logo"><FontAwesomeIcon icon={faHashtag} /></NavLink>
                     }
 

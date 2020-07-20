@@ -36,6 +36,9 @@ const UserSchema = new Schema({
         type: Date,
         required: true,
         default: new Date(Date.now()).toLocaleString()
-    }
+    },
+    tweets: [
+        { type: Schema.Types.ObjectId, ref: 'Tweet' }
+    ]
 })
 module.exports = mongoose.model('User', UserSchema)

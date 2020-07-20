@@ -8,7 +8,7 @@ import { faStar, faEnvelope, faUser, faHome, faUsers } from '@fortawesome/free-s
 const NavBar = () => {
     return (
         <nav className="nav">
-            <NavLink to='/home'><FontAwesomeIcon icon={faHome} /></NavLink>
+            <NavLink exact to='/'><FontAwesomeIcon icon={faHome} /></NavLink>
             <NavLink to='/profile'><FontAwesomeIcon icon={faUser} /></NavLink>
             <NavLink to='/users'><FontAwesomeIcon icon={faUsers} /></NavLink>
             <NavLink to='/bookmarks'><FontAwesomeIcon icon={faStar} /></NavLink>

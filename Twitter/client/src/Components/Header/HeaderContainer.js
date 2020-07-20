@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import { connect } from 'react-redux';
-import { logout_Thunk } from '../../Store/actions';
+import { logout_Thunk } from '../../Store/auth_actions';
 
 const HeaderContainer = (props) => {
     return <Header {...props} />
