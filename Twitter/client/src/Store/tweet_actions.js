@@ -36,3 +36,10 @@ export const set_pinned_tweetThunk = (tweet_id) => dispatch => {
         .post('/tweets/pinned', {tweet_id})
         .then()
 }
+
+// LIKE
+export const like_THUNK = (tweetID) => dispatch => {
+    axios
+        .post('/tweets/like',{tweetID})
+        .then(res => console.log(res.data))
+}

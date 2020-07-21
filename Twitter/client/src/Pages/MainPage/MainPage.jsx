@@ -48,6 +48,8 @@ const MainPage = ({ user, tweets, user_profile,isLoading, ...props }) => {
                                 text={el.tweet_text}
                                 date={el.tweet_date}
                                 ava={user.avatar}
+                                likes={el.likes}
+                                pinned={el.pinned}
                             />)
                             : <h1>Sorry 0 Tweets</h1>
                     }

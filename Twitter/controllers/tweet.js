@@ -2,7 +2,6 @@ const User = require('../models/User')
 const Tweet = require('../models/Tweet')
 
 module.exports.add_new_tweet = async (req, res) => {
-
     const newTweet = await new Tweet({
         tweet_img: req.file ? req.file.path : '',
         tweet_text: req.body.tweet,
@@ -45,7 +44,6 @@ module.exports.delete_tweet = async (req, res) => {
     }
 }
 
-
 module.exports.set_pinned_tweet = async (req, res) => {
 
     let checkPinned = await Tweet
@@ -66,4 +64,22 @@ module.exports.set_pinned_tweet = async (req, res) => {
         { $set: { "pinned": true } },
         { new: true }
     )
+}
+
+module.exports.like = async (req, res) => {
+    console.log('asd')
+    let like = await Tweet.findByIdAndUpdate(
+        { _id: req.body.tweetID },
+        { $push: { likes: [req.user.id] } },
+        { new: true }
+    )
+
+    let usersLike = await User.findByIdAndUpdate(
+        { _id: req.user.id },
+        { $push: { user_likes: [req.body.tweetID] } },
+        { new: true }
+    )
+
+    res.status(200)
+    // res.send(like)
 }

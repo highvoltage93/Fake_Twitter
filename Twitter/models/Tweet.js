@@ -20,7 +20,10 @@ const TweetSchema = new Schema({
     pinned: {
         type: Boolean,
         default: false
-    }
+    },
+    likes: [
+        {type: Schema.Types.ObjectId, ref: 'User'}
+    ]
 
 })
 

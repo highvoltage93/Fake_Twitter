@@ -47,6 +47,8 @@ const My_Tweets = ({ user, avatar, fullName, newTweet, tweets }) => {
                         text={el.tweet_text}
                         date={el.tweet_date}
                         ava={avatar}
+                        likes={el.likes}
+                        pinned={el.pinned}
                     />)
                     : <Preloader />
             }

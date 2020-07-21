@@ -39,6 +39,9 @@ const UserSchema = new Schema({
     },
     tweets: [
         { type: Schema.Types.ObjectId, ref: 'Tweet' }
+    ],
+    user_likes: [
+        { type: Schema.Types.ObjectId, ref: 'Tweet' }
     ]
 })
 module.exports = mongoose.model('User', UserSchema)

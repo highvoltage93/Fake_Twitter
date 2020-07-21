@@ -11,6 +11,7 @@ const HeaderContainer = (props) => {
 let mapStateToProps = (state) => {
     return{
         auth: state.auth.isAuth,
+        authUserId: state.auth.authUserId,
         avatar: state.auth.avatar,
         fullName: state.auth.fullName,
         search_users_list: state.users.search_users_list
