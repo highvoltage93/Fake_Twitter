@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHashtag } from '@fortawesome/free-solid-svg-icons'
 import { NavLink, Redirect } from 'react-router-dom'
@@ -8,7 +8,11 @@ import InputCircle from '../UI/Input/InputCircle';
 import Button from '../UI/Button/Button';
 import USER_LOGO from '../../Uttils/Pictures/user.jpg'
 
-const Header = ({ auth, avatar, fullName, logout }) => {
+const Header = ({ auth, avatar, fullName, logout, search }) => {
+
+    let searchHandler = (e) => {
+        search(e.target.value)
+    }
 
     return (
         <header>
@@ -21,8 +25,10 @@ const Header = ({ auth, avatar, fullName, logout }) => {
                     }
 
                     <InputCircle
+                        onChange={searchHandler}
                         type="text"
                         placeholder="Search in Twitter"
+                        name="search"
                     />
                 </div>
                 {

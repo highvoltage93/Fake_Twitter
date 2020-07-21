@@ -30,7 +30,7 @@ const My_Tweets = ({ user, avatar, fullName, newTweet, tweets }) => {
                             placeholder="Whats happening?"
                         ></textarea>
                         <div className="tweet_wrap_panel">
-                            <Button color="yellow">Tweet</Button>
+                            <Button disable={textValue ? false : true} color="yellow">Tweet</Button>
                         </div>
                     </form>
                 </div>

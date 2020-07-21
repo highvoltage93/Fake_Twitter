@@ -8,7 +8,7 @@ const TweetSchema = new Schema({
     },
     tweet_date: {
         type: Date,
-        default: new Date(Date.now()).toLocaleString()
+        default: Date.now()
     },
     tweet_text: {
         type: String

@@ -4,7 +4,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     &_content{
-        width: 60%;
+        // width: 60%;
         border: 1px solid $light-blue-color;
     }
     &_top{
@@ -25,6 +25,7 @@
     &_poster{
         height: 200px;
         width: 100%;
+        min-width: 558px;
     }
 
     &_info{

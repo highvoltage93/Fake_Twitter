@@ -30,3 +30,9 @@ export const delete_tweet_thunk = (tweet_id) => dispatch => {
         .post('/tweets/delete', {tweet_id})
         .then()
 }
+
+export const set_pinned_tweetThunk = (tweet_id) => dispatch => {
+    axios
+        .post('/tweets/pinned', {tweet_id})
+        .then()
+}

@@ -5,101 +5,37 @@ import Explore_User from '../../Components/Explore_User/Explore_User';
 import Input from '../../Components/UI/Input/Input';
 import Button from '../../Components/UI/Button/Button';
 
-const Explore = (props) => {
-
-    let new_tweet = [
-        {
-            id: Math.random(),
-            text: 'Lorem ipsum dolor sit amet consectetur adipisicing.',
-            ava: 'https://sportshub.cbsistatic.com/i/r/2019/11/19/9a9d05ff-9908-404e-ab09-25df195f4553/thumbnail/1200x675/2da474441d63bea20110d03d84928936/gronk.jpg',
-            name: 'Rob Gronkowski',
-            time: '3 minutes ago'
-        },
-        {
-            id: Math.random(),
-            text: 'Lorem ipsum dolor sit amet consectetur adipisicing.',
-            ava: 'https://sportshub.cbsistatic.com/i/r/2019/11/19/9a9d05ff-9908-404e-ab09-25df195f4553/thumbnail/1200x675/2da474441d63bea20110d03d84928936/gronk.jpg',
-            name: 'Rob Gronkowski',
-            time: '3 minutes ago'
-        },
-        {
-            id: Math.random(),
-            text: 'Lorem ipsum dolor sit amet consectetur adipisicing.',
-            ava: 'https://sportshub.cbsistatic.com/i/r/2019/11/19/9a9d05ff-9908-404e-ab09-25df195f4553/thumbnail/1200x675/2da474441d63bea20110d03d84928936/gronk.jpg',
-            name: 'Rob Gronkowski',
-            time: '3 minutes ago'
-        },
-        {
-            id: Math.random(),
-            text: 'Lorem ipsum dolor sit amet consectetur adipisicing.',
-            ava: 'https://sportshub.cbsistatic.com/i/r/2019/11/19/9a9d05ff-9908-404e-ab09-25df195f4553/thumbnail/1200x675/2da474441d63bea20110d03d84928936/gronk.jpg',
-            name: 'Rob Gronkowski',
-            time: '3 minutes ago'
-        },
-        {
-            id: Math.random(),
-            text: 'Lorem ipsum dolor sit amet consectetur adipisicing.',
-            ava: 'https://sportshub.cbsistatic.com/i/r/2019/11/19/9a9d05ff-9908-404e-ab09-25df195f4553/thumbnail/1200x675/2da474441d63bea20110d03d84928936/gronk.jpg',
-            name: 'Rob Gronkowski',
-            time: '3 minutes ago'
-        },
-        {
-            id: Math.random(),
-            text: 'Lorem ipsum dolor sit amet consectetur adipisicing.',
-            ava: 'https://sportshub.cbsistatic.com/i/r/2019/11/19/9a9d05ff-9908-404e-ab09-25df195f4553/thumbnail/1200x675/2da474441d63bea20110d03d84928936/gronk.jpg',
-            name: 'Rob Gronkowski',
-            time: '3 minutes ago'
+const Explore = ({ new_users, login,last_tweets }) => {
+    console.log(last_tweets);
+    let onSubmitForm = (e) => {
+        e.preventDefault()
+        let user = {
+            email: e.target.email.value,
+            password: e.target.password.value,
         }
-    ]
+        login(user)
+    }
 
-    let new_tweets = new_tweet.map(el => {
+
+
+
+    let new_tweets = last_tweets.map(el => {
         return <TweetExplore
-            key={el.id}
+            key={el._id}
             ava={el.ava}
-            text={el.text}
-            time={el.time}
+            text={el.tweet_text}
+            time={el.tweet_date}
             name={el.name}
         />
     })
 
-    let new_user = [
-        {
-            id: Math.random(),
-            name: 'Rob Gronkowski',
-            avatar: 'https://sportshub.cbsistatic.com/i/r/2019/11/19/9a9d05ff-9908-404e-ab09-25df195f4553/thumbnail/1200x675/2da474441d63bea20110d03d84928936/gronk.jpg'
-        },
-        {
-            id: Math.random(),
-            name: 'Rob Gronkowski',
-            avatar: 'https://sportshub.cbsistatic.com/i/r/2019/11/19/9a9d05ff-9908-404e-ab09-25df195f4553/thumbnail/1200x675/2da474441d63bea20110d03d84928936/gronk.jpg'
-        },
-        {
-            id: Math.random(),
-            name: 'Rob Gronkowski',
-            avatar: 'https://sportshub.cbsistatic.com/i/r/2019/11/19/9a9d05ff-9908-404e-ab09-25df195f4553/thumbnail/1200x675/2da474441d63bea20110d03d84928936/gronk.jpg'
-        },
-        {
-            id: Math.random(),
-            name: 'Rob Gronkowski',
-            avatar: 'https://sportshub.cbsistatic.com/i/r/2019/11/19/9a9d05ff-9908-404e-ab09-25df195f4553/thumbnail/1200x675/2da474441d63bea20110d03d84928936/gronk.jpg'
-        },
-        {
-            id: Math.random(),
-            name: 'Rob Gronkowski',
-            avatar: 'https://sportshub.cbsistatic.com/i/r/2019/11/19/9a9d05ff-9908-404e-ab09-25df195f4553/thumbnail/1200x675/2da474441d63bea20110d03d84928936/gronk.jpg'
-        },
-        {
-            id: Math.random(),
-            name: 'Rob Gronkowski',
-            avatar: 'https://sportshub.cbsistatic.com/i/r/2019/11/19/9a9d05ff-9908-404e-ab09-25df195f4553/thumbnail/1200x675/2da474441d63bea20110d03d84928936/gronk.jpg'
-        }
-    ]
-    let new_users = new_user.map(el => {
+    let users = new_users.map(el => {
         return <Explore_User
             avatar={el.avatar}
-            key={el.id}
-            id={el.id}
-            name={el.name}
+            key={el._id}
+            id={el._id}
+            name={el.joined}
+            name={el.fullName}
         />
     })
 
@@ -113,7 +49,7 @@ const Explore = (props) => {
                 </div>
                 <h1>New Users:</h1>
                 <div className="explore_wrap">
-                    {new_users}
+                    {users}
                 </div>
                 <h1>Most Popularity:</h1>
                 <div className="explore_wrap">
@@ -123,7 +59,7 @@ const Explore = (props) => {
             <div className="explore_right">
                 <img src="https://abs.twimg.com/sticky/illustrations/twitter_login_sidebar_illustration.png" alt="" />
                 <h1>Find out what's happening in the world right now.</h1>
-                <form className="explore_right_form">
+                <form className="explore_right_form" onSubmit={onSubmitForm}>
                     <Input
                         placeholder="Email"
                         type="email"
@@ -136,7 +72,7 @@ const Explore = (props) => {
                         require={true}
                         max={12}
                         min={2}
-                        name="name"
+                        name="password"
                     />
 
                     <Button color="blue">Log In</Button>

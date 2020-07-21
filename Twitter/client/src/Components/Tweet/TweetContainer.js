@@ -1,7 +1,7 @@
 import React from 'react';
 import Tweet from './Tweet';
 import { connect } from 'react-redux';
-import { delete_tweet_thunk } from '../../Store/tweet_actions';
+import { delete_tweet_thunk, set_pinned_tweetThunk } from '../../Store/tweet_actions';
 
 const TweetContainer = (props) => {
     return <Tweet {...props} />
@@ -12,6 +12,9 @@ let mapDispatchToProps = (dispatch) => {
         delete_tweet: (tweet_id) => {
             dispatch(delete_tweet_thunk(tweet_id))
 
+        },
+        set_tweet_pinned: (tweet_id) => {
+            dispatch(set_pinned_tweetThunk(tweet_id))
         }
     }
 }

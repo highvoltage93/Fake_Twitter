@@ -26,14 +26,16 @@ module.exports.get_my_tweets = async (req, res) => {
     res.send(tweets)
 }
 
-module.exports.delete_tweet = async(req, res) => {
+module.exports.delete_tweet = async (req, res) => {
     try {
         let tweet = await (await Tweet.findById(req.body.tweet_id)).deleteOne();
         let userTweets = await User.findByIdAndUpdate(
-            {_id: req.user.id},
-            {$pull : {
-                "tweets": req.body.tweet_id
-            }},
+            { _id: req.user.id },
+            {
+                $pull: {
+                    "tweets": req.body.tweet_id
+                }
+            },
             { new: true }
         )
 
@@ -41,4 +43,27 @@ module.exports.delete_tweet = async(req, res) => {
     } catch (err) {
         console.log(err)
     }
+}
+
+
+module.exports.set_pinned_tweet = async (req, res) => {
+
+    let checkPinned = await Tweet
+        .findOne({ pinned: true })
+
+    if (checkPinned) {
+        let falseCheck = await Tweet.findByIdAndUpdate(
+            { _id: checkPinned._id },
+            { $set: { "pinned": false } },
+            { new: true }
+        )
+    }
+
+
+
+    let tweet = await Tweet.findOneAndUpdate(
+        { _id: req.body.tweet_id },
+        { $set: { "pinned": true } },
+        { new: true }
+    )
 }

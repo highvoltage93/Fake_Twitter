@@ -7,7 +7,10 @@ const InputCircle = (props) => {
             <input
                 className="input_circle"
                 type={props.type}
-                placeholder={props.placeholder} />
+                placeholder={props.placeholder}
+                name={props.name}
+                onChange={props.onChange}
+                />
         </>
     );
 }

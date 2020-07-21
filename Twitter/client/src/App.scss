@@ -43,4 +43,12 @@ textarea::placeholder{
 }
 .app_content{
   width: calc(100% - 100px);
+  display: flex;
+  justify-content: space-between;
+}
+.app-main-content{
+  width: 59%;
+}
+.app-dop-content{
+  width: 37%;
 }
