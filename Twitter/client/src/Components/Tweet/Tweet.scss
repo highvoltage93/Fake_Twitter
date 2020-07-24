@@ -112,7 +112,7 @@
             svg{
                 width: 16px;
                 fill: $grey-color;
-                margin-right: 10px;
+                margin-right: 5px;
             }
 
             span{
@@ -126,8 +126,8 @@
 
 .tweet_like.like{
     svg{
-        fill: red;
-        stroke: red;
-        color: red;
+        fill: $red-color;
+    } span{
+        color: $red-color;
     }
 }

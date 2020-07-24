@@ -24,7 +24,8 @@ let mapStateToProps = state => {
         fullName: state.auth.fullNam,
         tweets: state.tweets.tweets,
         user_profile: state.users.user_profile,
-        isLoading: state.users.isLoading
+        isLoading: state.users.isLoading,
+        authID: state.auth.authUserId
     }
 }
 

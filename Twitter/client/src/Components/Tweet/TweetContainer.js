@@ -1,15 +1,17 @@
 import React from 'react';
 import Tweet from './Tweet';
 import { connect } from 'react-redux';
-import { delete_tweet_thunk, set_pinned_tweetThunk, like_THUNK } from '../../Store/tweet_actions';
+import { delete_tweet_thunk, set_pinned_tweetThunk, like_THUNK, dislike_THUNK } from '../../Store/tweet_actions';
 
 const TweetContainer = (props) => {
+    
     return <Tweet {...props} />
 }
 
 let mapStateToProps = (state) => {
     return {
-        authID: state.auth.authUserId
+        authID: state.auth.authUserId,
+        is_like_succes: state.tweets.is_like_succes
     }
 }
 
@@ -24,6 +26,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         like: (tweetID) => {
             dispatch(like_THUNK(tweetID))
+        },
+        dislike: (tweetID) => {
+            dispatch(dislike_THUNK(tweetID))
         }
     }
 }

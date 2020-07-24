@@ -42,8 +42,8 @@ function App(props) {
             {
               auth && <div className="app_content">
               <div className="app-main-content">
-                <Route exact path="/profile" component={MainpageContainer} />
-                <Route exact path="/profile/:profileID?" component={MainpageContainer} />
+                {/* <Route exact path="/profile" component={MainpageContainer} /> */}
+                <Route path="/profile/:profileID?" component={MainpageContainer} />
                 {
                   auth
                     ? <Route exact path="/" component={My_TweetsContainer} />

@@ -1,5 +1,6 @@
 const User = require('../models/User')
 const Tweet = require('../models/Tweet')
+const { populate } = require('../models/User')
 
 module.exports.add_new_tweet = async (req, res) => {
     const newTweet = await new Tweet({
@@ -67,7 +68,6 @@ module.exports.set_pinned_tweet = async (req, res) => {
 }
 
 module.exports.like = async (req, res) => {
-    console.log('asd')
     let like = await Tweet.findByIdAndUpdate(
         { _id: req.body.tweetID },
         { $push: { likes: [req.user.id] } },
@@ -81,5 +81,38 @@ module.exports.like = async (req, res) => {
     )
 
     res.status(200)
-    // res.send(like)
+    res.send(like)
+}
+
+module.exports.dislike = async (req, res) => {
+    let like = await Tweet.findByIdAndUpdate(
+        { _id: req.body.tweetID },
+        { $pull: { likes: req.user.id } },
+        { new: true }
+    )
+
+    let usersLike = await User.findByIdAndUpdate(
+        { _id: req.user.id },
+        { $pull: { user_likes: req.body.tweetID } },
+        { new: true }
+    )
+    res.status(200)
+    res.send(like)
+}
+
+module.exports.get_likes_tweets = async (req, res) => {
+    let tweets = await User
+        .findById(req.body.userID)
+        // .select('user_likes')
+        // .populate('user_likes')
+
+        .populate({
+            path: 'user_likes',
+            populate: {
+                path: 'tweet_author'
+            }
+        })
+        .sort({ tweet_date: -1 })
+
+    res.status(200).send(tweets)
 }

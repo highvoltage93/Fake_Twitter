@@ -8,7 +8,7 @@ const InfoContent = ({ id, users_content }) => {
         <div className="info">
             <h1>Who to follow</h1>
             {
-                users_content?.map(el => <NavLink to={`/profile/${el._id}`} className="info_user">
+                users_content?.map(el => <NavLink key={el._id} to={`/profile/${el._id}`} className="info_user">
                     <img src={el.avatar} alt="" />
                     <div>
                         <span>{el.fullName}</span>

@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { connect } from 'react-redux';
 import InfoContent from './InfoContent';
 import { get_users_for_content_THUNK } from '../../Store/users_action';
 
 const InfoContentContainer = (props) => {
 
-    React.useEffect(() => {
+    useEffect(() => {
        props.get_users()
     }, [])
 

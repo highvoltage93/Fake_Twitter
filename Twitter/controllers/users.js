@@ -17,7 +17,6 @@ module.exports.get_users = async (req, res) => {
 }
 
 module.exports.get_profile_user = async (req, res) => {
-    console.log('connect')
     let userID = req.params.profileID
     let user = await (await User.findById(userID).select('--password').populate('tweets'))
 

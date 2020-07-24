@@ -7,7 +7,6 @@ import Preloader from '../../Uttils/Preloader/Preloader'
 const My_Tweets = ({ user, avatar, fullName, newTweet, tweets }) => {
 
     const [textValue, setTextValue] = useState('');
-
     let onSubmitForm = (e) => {
         e.preventDefault()
         let tweet = e.target.tweet.value

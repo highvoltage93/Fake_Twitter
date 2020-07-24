@@ -1,16 +1,16 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
 import './MainPage.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendar, faLocationArrow } from '@fortawesome/free-solid-svg-icons'
 import TweetContainer from '../../Components/Tweet/TweetContainer';
 import { format } from 'date-fns'
 import Preloader from '../../Uttils/Preloader/Preloader';
+import MainPageLikes from '../MainPageLikes/MainPageLikes';
 
 
-const MainPage = ({ user, tweets, user_profile,isLoading, ...props }) => {
-    if (!user_profile) return <Preloader/>
-    if (!isLoading) return <Preloader/>
+const MainPage = ({ user, tweets, authID, user_profile, isLoading, ...props }) => {
+    if (!user_profile || !isLoading) return <Preloader />
     return (
         <div className="main">
             <div className="main_content">
@@ -34,25 +34,31 @@ const MainPage = ({ user, tweets, user_profile,isLoading, ...props }) => {
                     </div>
                 </div>
                 <div className="main_panel">
-                    <NavLink to="/">Tweets</NavLink>
+                    <NavLink exact to={`/profile/${user_profile._id}/`}>Tweets</NavLink>
                     <NavLink to="app/profile">Media</NavLink>
-                    <NavLink to="app/profile">Likes</NavLink>
+                    <NavLink to={`/profile/${user_profile._id}/likes`}>Likes</NavLink>
                 </div>
                 <div className="main_content_tweets">
-                    {
-                        user_profile.tweets
+                    {<Route exact path="/profile/:profileID?/" render={() => {
+                        return user_profile.tweets
                             ? user_profile.tweets.map(el => <TweetContainer
                                 key={el._id}
                                 id={el._id}
-                                name={user.fullName}
+                                name={user_profile.fullName}
                                 text={el.tweet_text}
                                 date={el.tweet_date}
-                                ava={user.avatar}
+                                ava={user_profile.avatar}
                                 likes={el.likes}
                                 pinned={el.pinned}
                             />)
                             : <h1>Sorry 0 Tweets</h1>
-                    }
+                    }} />}
+                    {<Route path="/profile/:profileID?/likes" component={() => <MainPageLikes
+                        name={user_profile.fullName}
+                        ava={user_profile.ava}
+                        id={user_profile._id}
+                        authID={authID}
+                    />} />}
                 </div>
             </div>
             <div className="main_dop"></div>

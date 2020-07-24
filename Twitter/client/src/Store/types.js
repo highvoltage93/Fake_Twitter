@@ -10,7 +10,9 @@ export const ADD_NEW_TWEET = "ADD_NEW_TWEET"
 export const DELETE_TWEET = "DELETE_TWEET"
 export const SET_TWEET_PINNED = "SET_TWEET_PINNED"
 export const LIKE = "LIKE"
-
+export const DISLIKE = "DISLIKE"
+export const IS_LIKE_SUCCES = "IS_LIKE_SUCCES"
+export const GET_LIKES_TWEETS = "GET_LIKES_TWEETS"
 
 // EXPLORE
 export const GET_LAST_TWEETS = 'GET_LAST_TWEETS'
