@@ -131,3 +131,7 @@
         color: $red-color;
     }
 }
+.App.night .tweet:hover,
+.App.twilight .tweet:hover{
+    background-color: rgb(21, 24, 28);
+}

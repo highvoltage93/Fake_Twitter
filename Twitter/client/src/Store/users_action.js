@@ -5,12 +5,16 @@ const { SEARCH, GET_USERS_FOR_CONTENT, GET_USER_PROFILE, ISLOADING } = require("
 const isLoading_AC = (data) => ({ type: ISLOADING, loading: data })
 
 // SEARCH
-const search_AC = (users) => ({ type: SEARCH, users })
+// const search_AC = (data) => ({ type: SEARCH, users: data })
+// const search_AC = (users) => ({type: SEARCH, data:users})
 export const search_THUNK = (value) => dispatch => {
     axios
         .post('/users/search', { value })
         .then(res => {
-            dispatch(search_AC(res.data))
+            dispatch({
+                type: SEARCH,
+                data: res.data
+            })
         })
 }
 

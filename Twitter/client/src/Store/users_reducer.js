@@ -1,19 +1,20 @@
 import { SEARCH, GET_USERS_FOR_CONTENT, GET_USER_PROFILE, ISLOADING } from "./types";
 
 const INITIAL_STATE = {
-    search_users_list: [],
+    // search_users_list: [],
     users_content: [],
     user_profile: null,
-    isLoading: true
+    isLoading: true,
+    search_users: []
 };
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case SEARCH:
-            return { 
-                ...state,
-                search_users_list: [action.data]
-            }
+        // case SEARCH:
+        //     return { 
+        //         ...state,
+        //         search_users_list: [action.data]
+        //     }
         case GET_USERS_FOR_CONTENT:
             return{
                 ...state, users_content: [...action.data]
@@ -25,6 +26,11 @@ export default (state = INITIAL_STATE, action) => {
         case ISLOADING:
             return{
                 ...state, isLoading: action.loading
+            }
+        case SEARCH:
+            return{
+                ...state, 
+                search_users:[...action.data]
             }
         default:
             return state

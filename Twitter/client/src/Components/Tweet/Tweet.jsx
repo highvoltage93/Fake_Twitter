@@ -36,6 +36,10 @@ const Tweet = ({
         })
     }, [dopNav]);
 
+    useEffect(() => {
+
+    }, [likes])
+
     let pinnedHandler = (id) => {
         set_tweet_pinned(id)
         setDopNav(false)

@@ -1,0 +1,64 @@
+h1{
+    font-size: 20px;
+}
+.bg{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    label{
+        width: 30%;
+        min-width: 160px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        cursor: pointer;
+        border: 2px solid transparent;
+    }
+
+    .def{ 
+        background: #ffffff;
+
+        span{
+            color: black;
+        }
+    
+    };
+    .twilight{ 
+        background: rgb(21, 32, 43);
+        span{
+            color: rgb(255, 255, 255);
+        }
+    }
+    .night{ 
+        background: rgb(0, 0, 0);
+        span{
+            color: rgb(255, 255, 255);
+        }
+    };
+
+    p{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border:1px solid rgb(170, 184, 194);
+        margin-right: 15px;
+    }
+
+    span{
+        font-size: 15px;
+    }
+
+    input{
+        display: none;
+    }
+
+    input:checked+label>p{
+        background-color: rgb(23, 191, 99);
+    }
+    input:checked+label{
+        border:2px solid rgb(23, 191, 99);
+    }
+}

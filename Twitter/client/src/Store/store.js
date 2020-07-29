@@ -4,12 +4,14 @@ import auth_reducer from './auth_reducer'
 import tweet_reducer from './tweet_reducer'
 import explore_reducer from './explore_reducer'
 import users_reducer from './users_reducer'
+import setting_reducer from './setting_reducer'
 
 let reducers = combineReducers({
     auth: auth_reducer,
     tweets: tweet_reducer,
     explore: explore_reducer,
-    users: users_reducer
+    users: users_reducer,
+    settings: setting_reducer
 })
 
 const store = createStore(reducers, applyMiddleware(thunk))

@@ -46,3 +46,30 @@ header{
         color: $blue-color
     }
 }
+.search{
+    position: absolute;
+    left: 55px;
+    right: 0;
+
+    ul{
+        // background: #ffffff;
+        z-index: 3;
+        padding: 10px;
+    }
+
+    li{
+        display: flex;
+    }
+    img{
+        width: 20px;
+        height: 20px;
+
+    }
+    span{
+        font-size: 13px;
+    }
+}
+.hed_left{
+    display: flex;
+    position: relative;
+}

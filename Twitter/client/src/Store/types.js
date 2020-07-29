@@ -13,6 +13,7 @@ export const LIKE = "LIKE"
 export const DISLIKE = "DISLIKE"
 export const IS_LIKE_SUCCES = "IS_LIKE_SUCCES"
 export const GET_LIKES_TWEETS = "GET_LIKES_TWEETS"
+export const UPDATE_AFTER_LIKE = "UPDATE_AFTER_LIKE"
 
 // EXPLORE
 export const GET_LAST_TWEETS = 'GET_LAST_TWEETS'
@@ -25,3 +26,8 @@ export const SEARCH = "SEARCH"
 export const GET_USERS_FOR_CONTENT = 'GET_USERS_FOR_CONTENT'
 export const GET_USER_PROFILE = 'GET_USER_PROFILE'
 export const ISLOADING = "ISLOADING"
+export const SETTINGS = "SETTINGS"
+
+
+// SETTINGS
+export const MODAL = "MODAL"

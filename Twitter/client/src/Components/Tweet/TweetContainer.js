@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { delete_tweet_thunk, set_pinned_tweetThunk, like_THUNK, dislike_THUNK } from '../../Store/tweet_actions';
 
 const TweetContainer = (props) => {
+
+ 
     
     return <Tweet {...props} />
 }

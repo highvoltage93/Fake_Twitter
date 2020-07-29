@@ -14,7 +14,8 @@ let mapStateToProps = (state) => {
         authUserId: state.auth.authUserId,
         avatar: state.auth.avatar,
         fullName: state.auth.fullName,
-        search_users_list: state.users.search_users_list
+        search_users_list: state.users.search_users_list,
+        search_users: state.users.search_users
     }
 }
 

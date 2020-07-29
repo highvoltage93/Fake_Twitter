@@ -32,6 +32,13 @@
         display: flex;
         margin-top: -68px;
         padding: 0 15px;
+        position: relative;
+
+        button{
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+        }
 
         &_avatar{
             width: 135px;

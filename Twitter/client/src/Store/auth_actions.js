@@ -1,4 +1,4 @@
-import { REGISTRATION, LOAD_USER, LOGOUT, LOGIN } from "./types";
+import { REGISTRATION, LOAD_USER, LOGOUT, LOGIN, SETTINGS } from "./types";
 import axios from 'axios'
 
 // REGISTRATION
@@ -43,4 +43,16 @@ export const loadThunk = () => {
 // LOGOUT
 export const logout_Thunk = () => dispatch => {
     dispatch({ type: LOGOUT })
+}
+
+// SETTINGS
+const settings_AC = (data) => ({type: SETTINGS, data})
+
+export const settings_THUNK = (bg) => dispatch => {
+    debugger
+    axios
+        .patch('/users/bg', {bg})
+        .then(res => {
+            dispatch(settings_AC(res.data))
+        })
 }

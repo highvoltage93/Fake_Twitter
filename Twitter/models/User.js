@@ -44,10 +44,11 @@ const UserSchema = new Schema({
         { type: Schema.Types.ObjectId, ref: 'Tweet' }
     ],
     followers: [
-        {type: Schema.Types.ObjectId, ref: 'User'}
+        { type: Schema.Types.ObjectId, ref: 'User' }
     ],
     following: [
-        {type: Schema.Types.ObjectId, ref: 'User'}
-    ]
+        { type: Schema.Types.ObjectId, ref: 'User' }
+    ],
+    background_color: { type: String, default: 'def' }
 })
 module.exports = mongoose.model('User', UserSchema)

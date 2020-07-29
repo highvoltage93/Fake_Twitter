@@ -1,4 +1,4 @@
-import { GET_TWEETS, ADD_NEW_TWEET, IS_LIKE_SUCCES, GET_LIKES_TWEETS } from "./types";
+import { GET_TWEETS, ADD_NEW_TWEET, IS_LIKE_SUCCES, GET_LIKES_TWEETS, UPDATE_AFTER_LIKE } from "./types";
 
 let INITIAL_STATE = {
     tweets: [],
@@ -26,6 +26,19 @@ export default (state = INITIAL_STATE, action) => {
             return{
                 ...state,
                 likes_tweets: [...action.tweets.user_likes]
+            }
+        case UPDATE_AFTER_LIKE:
+            return{
+                ...state,
+                likes_tweets: state.likes_tweets.map(el => {
+                    if(el._id === action.tweet._id){
+                        return{
+                            ...el,
+                            likes: action.tweet.likes
+                        }
+                    }
+                    return el
+                })
             }
         default:
             return state;

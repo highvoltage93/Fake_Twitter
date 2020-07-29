@@ -52,3 +52,9 @@
     background-color: $light-blue-color;
     height: 10px;
 }
+
+.App.night textarea,
+.App.twilight textarea{
+    background-color: rgb(21, 24, 28);
+    color: #ffffff;
+}

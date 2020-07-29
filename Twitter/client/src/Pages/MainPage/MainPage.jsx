@@ -7,6 +7,7 @@ import TweetContainer from '../../Components/Tweet/TweetContainer';
 import { format } from 'date-fns'
 import Preloader from '../../Uttils/Preloader/Preloader';
 import MainPageLikes from '../MainPageLikes/MainPageLikes';
+import Button from '../../Components/UI/Button/Button'
 
 
 const MainPage = ({ user, tweets, authID, user_profile, isLoading, ...props }) => {
@@ -21,6 +22,7 @@ const MainPage = ({ user, tweets, authID, user_profile, isLoading, ...props }) =
                 <img className="main_poster" src={user_profile.poster} />
                 <div className="main_info">
                     <img className="main_info_avatar" src={user_profile.avatar} alt="" />
+                    <Button onClick={() => props.modal_handler()} color="yellow">Set ava</Button>
                 </div>
                 <div className="main_data">
                     <h2>{user_profile.fullName}</h2>
@@ -40,8 +42,8 @@ const MainPage = ({ user, tweets, authID, user_profile, isLoading, ...props }) =
                 </div>
                 <div className="main_content_tweets">
                     {<Route exact path="/profile/:profileID?/" render={() => {
-                        return user_profile.tweets
-                            ? user_profile.tweets.map(el => <TweetContainer
+                        return tweets
+                            ? tweets.map(el => <TweetContainer
                                 key={el._id}
                                 id={el._id}
                                 name={user_profile.fullName}

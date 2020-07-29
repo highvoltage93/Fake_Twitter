@@ -13,6 +13,7 @@ import store from './Store/store';
 import { loadThunk } from './Store/auth_actions'
 import { connect } from 'react-redux';
 import InfoContentContainer from './Pages/InfoContent/InfoContentContainer';
+import SettingsPageContainer from './Pages/SettingsPage/SettingsPageContainer';
 
 
 function App(props) {
@@ -23,13 +24,13 @@ function App(props) {
 
   React.useEffect(() => {
     store.dispatch(loadThunk())
-  }, [])
+  }, [props.background_color])
 
   let auth = props.auth
 
   return (
     <>
-      <div className="App">
+      <div className="App" className={`App ${props.background_color}`}>
         <HeaderContainer />
         <div className="container">
           <Route exact path="/explore" component={ExploreContainer} />
@@ -42,8 +43,8 @@ function App(props) {
             {
               auth && <div className="app_content">
               <div className="app-main-content">
-                {/* <Route exact path="/profile" component={MainpageContainer} /> */}
                 <Route path="/profile/:profileID?" component={MainpageContainer} />
+                <Route path="/settings" component={SettingsPageContainer} />
                 {
                   auth
                     ? <Route exact path="/" component={My_TweetsContainer} />
@@ -69,7 +70,8 @@ function App(props) {
 
 let mapStateToProps = (state) => {
   return {
-    auth: state.auth.isAuth
+    auth: state.auth.isAuth,
+    background_color: state.auth.background_color
   }
 }
 
