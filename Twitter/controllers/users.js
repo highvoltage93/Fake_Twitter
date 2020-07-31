@@ -59,3 +59,14 @@ module.exports.bg = async (req, res) => {
     res.status(200)
     res.send(user)
 }
+
+module.exports.upload_avatar = async (req, res) => {
+    let user = await User.findByIdAndUpdate(
+        {_id: req.user.id},
+        {'$set': {avatar: `http://localhost:5678/` + req.file.path}},
+        {new: true}
+    )
+
+    res.status(200)
+    res.send(user)
+}

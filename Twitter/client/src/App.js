@@ -14,6 +14,7 @@ import { loadThunk } from './Store/auth_actions'
 import { connect } from 'react-redux';
 import InfoContentContainer from './Pages/InfoContent/InfoContentContainer';
 import SettingsPageContainer from './Pages/SettingsPage/SettingsPageContainer';
+import Modal from './Components/Modal/Modal';
 
 
 function App(props) {
@@ -31,6 +32,7 @@ function App(props) {
   return (
     <>
       <div className="App" className={`App ${props.background_color}`}>
+        <Modal/>
         <HeaderContainer />
         <div className="container">
           <Route exact path="/explore" component={ExploreContainer} />

@@ -8,9 +8,12 @@ import { format } from 'date-fns'
 import Preloader from '../../Uttils/Preloader/Preloader';
 import MainPageLikes from '../MainPageLikes/MainPageLikes';
 import Button from '../../Components/UI/Button/Button'
+import Modal from '../../Components/Modal/Modal';
+import UploadFile from '../../Components/UploadFile/UploadFile';
 
 
-const MainPage = ({ user, tweets, authID, user_profile, isLoading, ...props }) => {
+const MainPage = ({ user, tweets, authID, user_profile,modal_handler, isLoading, ...props }) => {
+  
     if (!user_profile || !isLoading) return <Preloader />
     return (
         <div className="main">
@@ -22,8 +25,11 @@ const MainPage = ({ user, tweets, authID, user_profile, isLoading, ...props }) =
                 <img className="main_poster" src={user_profile.poster} />
                 <div className="main_info">
                     <img className="main_info_avatar" src={user_profile.avatar} alt="" />
-                    <Button onClick={() => props.modal_handler()} color="yellow">Set ava</Button>
+                    <Button onClick={modal_handler} color="yellow">Set ava</Button>
                 </div>
+                <Modal>
+                    <UploadFile/>
+                </Modal>
                 <div className="main_data">
                     <h2>{user_profile.fullName}</h2>
                     <p className="main_data_email">{user_profile.email}</p>

@@ -1,10 +1,10 @@
 import React from 'react';
 import './Button.scss'
  
-const Button = ({disable = false, color, children}) => {
+const Button = ({disable = false, color, children, onClick = null}) => {
     return (
         <>
-            <button disabled={disable} className={`button ${color}`}>{children}</button>
+            <button disabled={disable} onClick={onClick} className={`button ${color}`}>{children}</button>
         </>
     );
 }
