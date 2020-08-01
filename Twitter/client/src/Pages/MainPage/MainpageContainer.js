@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import MainPage from './MainPage';
 import { connect } from 'react-redux';
 import { get_tweetsThunk } from '../../Store/tweet_actions';
-import { get_user_profile_THUNK } from '../../Store/users_action';
+import { get_user_profile_THUNK, follow_THUNK, unfollow_THUNK } from '../../Store/users_action';
 import { modal_handler_AC } from '../../Store/settings_actions';
  
 const MainpageContainer = (props) => {
@@ -26,17 +26,18 @@ let mapStateToProps = state => {
         tweets: state.tweets.tweets,
         user_profile: state.users.user_profile,
         isLoading: state.users.isLoading,
-        authID: state.auth.authUserId
+        authID: state.auth.authUserId,
+        follow_disable: state.users.follow_disable
     }
 }
 
 let mapDispatchToProps = (dispatch) => {
     return{
         get_tweets: () => dispatch(get_tweetsThunk()),
-        get_profile: (profileID) => {
-            dispatch(get_user_profile_THUNK(profileID))
-        },
-        modal_handler:() => dispatch(modal_handler_AC())
+        get_profile: (profileID) => dispatch(get_user_profile_THUNK(profileID)),
+        modal_handler:() => dispatch(modal_handler_AC()),
+        follow: (userID) => dispatch(follow_THUNK(userID)),
+        unfollow: (userID) => dispatch(unfollow_THUNK(userID))
     }
 }
 

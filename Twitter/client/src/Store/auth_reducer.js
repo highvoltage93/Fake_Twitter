@@ -1,4 +1,4 @@
-import { REGISTRATION, LOAD_USER, LOGOUT, SETTINGS } from "./types"
+import { REGISTRATION, FOLLOW, LOAD_USER, LOGOUT, SETTINGS, UNFOLLOW } from "./types"
 import User from '../Uttils/Pictures/user.jpg'
 
 let INITIAL_STATE = {
@@ -10,7 +10,7 @@ let INITIAL_STATE = {
     user: null,
     token: localStorage.getItem('token'),
     authRedirect: false,
-    background_color: 'def' 
+    background_color: 'def'
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -33,7 +33,7 @@ export default (state = INITIAL_STATE, action) => {
                 ...state,
                 isAuth: true,
                 user: action.data,
-                avatar: action.data.avatar === ""? User : action.data.avatar,
+                avatar: action.data.avatar === "" ? User : action.data.avatar,
                 email: action.data.email,
                 fullName: action.data.fullName,
                 authUserId: action.data._id,
@@ -47,9 +47,15 @@ export default (state = INITIAL_STATE, action) => {
                 isAuth: false
             }
         case SETTINGS:
-            return{
+            return {
                 ...state,
                 background_color: action.background_color
+            }
+        case FOLLOW:
+        case UNFOLLOW:
+            return {
+                ...state,
+                user: action.user
             }
         default:
             return state

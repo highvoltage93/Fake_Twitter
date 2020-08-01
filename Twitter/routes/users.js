@@ -8,7 +8,7 @@ const auth = require('../middleware/auth')
 const multer = require('multer')
 
 const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
+    destination: function (req, file, cb) {
         cb(null, 'uploads')
     },
     filename(req, file, cb) {
@@ -17,13 +17,15 @@ const storage = multer.diskStorage({
 })
 const upload = multer({ storage: storage })
 
-// http://localhost:5678/
 
 route.post('/search', controller.search)
-route.get('/get_users_content', controller.get_users)
+route.get('/get_users_content', auth, controller.get_users)
 route.get('/profile/:profileID', controller.get_profile_user)
-route.post('/follow', auth, controller.follow)
+route.patch('/follow', auth, controller.follow)
+route.patch('/unfollow', auth, controller.unfollow)
 route.patch('/bg', auth, controller.bg)
-route.patch('/proile_photo', upload.single('avatar'), auth,  controller.upload_avatar)
+route.patch('/proile_photo', auth, upload.single('avatar'), controller.upload_avatar)
+route.patch('/poster_photo', auth, upload.single('poster'), controller.upload_poster)
+route.get('/list/:profileID', controller.get_follow_list)
 
 module.exports = route

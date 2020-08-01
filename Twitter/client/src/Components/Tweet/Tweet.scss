@@ -1,11 +1,35 @@
 @import '../../App.scss';
 
+.pin{
+    display: none;
+}
+
 .tweet{
     transition: .5s all;
     border: 1px solid $light-blue-color;
     padding: 10px;
     transition: .4s all;
+    position: relative;
     cursor: pointer;
+
+    &.pinned{
+        border-bottom: 10px solid #e6ecf0;
+
+        .pin{
+            font-size: 11px;
+            margin-bottom: 5px;   
+             margin-left: 45px;
+            font-weight: 600;
+            color: $grey-color;
+            display: inline;
+
+            svg{
+                width: 10px;
+                fill: $grey-color;
+            }
+        }
+    }
+
     &:hover{
         background: $light-blue-color;
         transition: .4s all;

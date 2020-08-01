@@ -48,7 +48,12 @@ module.exports.delete_tweet = async (req, res) => {
 module.exports.set_pinned_tweet = async (req, res) => {
 
     let checkPinned = await Tweet
-        .findOne({ pinned: true })
+        .findOne({
+            $and: [
+                { pinned: true },
+                { tweet_author: req.user.id }
+            ]
+        })
 
     if (checkPinned) {
         let falseCheck = await Tweet.findByIdAndUpdate(
@@ -58,13 +63,13 @@ module.exports.set_pinned_tweet = async (req, res) => {
         )
     }
 
-
-
     let tweet = await Tweet.findOneAndUpdate(
         { _id: req.body.tweet_id },
         { $set: { "pinned": true } },
         { new: true }
     )
+
+    res.status(200).send(tweet)
 }
 
 module.exports.like = async (req, res) => {

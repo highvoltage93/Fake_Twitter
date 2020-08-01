@@ -1,9 +1,8 @@
 import axios from 'axios'
-const { GET_TWEETS, ADD_NEW_TWEET, IS_LIKE_SUCCES, GET_LIKES_TWEETS, UPDATE_AFTER_LIKE } = require("./types");
+const { GET_TWEETS, ADD_NEW_TWEET, IS_LIKE_SUCCES, GET_LIKES_TWEETS, UPDATE_AFTER_LIKE, SET_TWEET_PINNED } = require("./types");
 
 // GET_TWEETS
 const get_tweetsAC = (tweets) => ({ type: GET_TWEETS, tweets })
-
 export const get_tweetsThunk = () => dispatch => {
     axios
         .get('/tweets')
@@ -14,7 +13,6 @@ export const get_tweetsThunk = () => dispatch => {
 
 // ADD_NEW_TWEET
 const addNewTweet = (tweets) => ({ type: ADD_NEW_TWEET, tweets })
-
 export const addNewTweetThunk = (tweet) => dispatch => {
     axios
         .post('/tweets/add', { tweet })
@@ -31,10 +29,14 @@ export const delete_tweet_thunk = (tweet_id) => dispatch => {
         .then()
 }
 
+// PINNED_TWEET
+const pinned_AC = (pinned) => ({type: SET_TWEET_PINNED, pinned})
 export const set_pinned_tweetThunk = (tweet_id) => dispatch => {
     axios
         .post('/tweets/pinned', { tweet_id })
-        .then()
+        .then(res => {
+            dispatch(pinned_AC(res.data))
+        })
 }
 
 
@@ -44,7 +46,6 @@ const is_like_succes_AC = (bol) => ({ type: IS_LIKE_SUCCES, like_succes: bol })
 const update_after_like_AC = (tweet) => ({type: UPDATE_AFTER_LIKE, tweet})
 // LIKE
 export const like_THUNK = (tweetID) => dispatch => {
-    debugger
     dispatch(is_like_succes_AC(false))
     axios
         .post('/tweets/like', { tweetID })

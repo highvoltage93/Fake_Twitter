@@ -1,12 +1,10 @@
 import axios from 'axios'
-const { SEARCH, GET_USERS_FOR_CONTENT, GET_USER_PROFILE, ISLOADING } = require("./types");
+const { SEARCH, GET_USERS_FOR_CONTENT, GET_USER_PROFILE, ISLOADING, FOLLOW, UNFOLLOW ,FOLLOW_DISABLE_BUTTON, GET_FOLLOW_LIST} = require("./types");
 
 // ISLOADING
 const isLoading_AC = (data) => ({ type: ISLOADING, loading: data })
 
 // SEARCH
-// const search_AC = (data) => ({ type: SEARCH, users: data })
-// const search_AC = (users) => ({type: SEARCH, data:users})
 export const search_THUNK = (value) => dispatch => {
     axios
         .post('/users/search', { value })
@@ -39,4 +37,38 @@ export const get_user_profile_THUNK = (profileID) => dispatch => {
             dispatch(isLoading_AC(true))
         })
 
+}
+
+// FOLLOW
+
+export const follow_THUNK = (userID) => dispatch => {
+    dispatch({type: FOLLOW_DISABLE_BUTTON})
+    axios
+        .patch('/users/follow', { userID })
+        .then(res => {
+            dispatch({ type: FOLLOW, user: res.data })
+            dispatch({type: FOLLOW_DISABLE_BUTTON})
+        })
+}
+
+// UNFOLLOW
+export const unfollow_THUNK = (userID) => dispatch => {
+    dispatch({type: FOLLOW_DISABLE_BUTTON})
+    axios
+        .patch('/users/unfollow', { userID })
+        .then(res => {
+            dispatch({ type: UNFOLLOW, user: res.data })
+            dispatch({type: FOLLOW_DISABLE_BUTTON})
+        })
+}
+
+// GET_FOLLOW_LIST
+const get_follow_list_AC = (list) => ({type: GET_FOLLOW_LIST, list})
+
+export const get_follow_list_THUNK = (profileID) => dispatch => {
+    axios
+        .get(`/users/list/${profileID}`)
+        .then(res => {
+            dispatch(get_follow_list_AC(res.data))
+        })
 }

@@ -23,9 +23,7 @@ let mapStateToProps = state => {
 
 let mapDispatchToProps = (dispatch) => {
     return{
-        newTweet: (tweet) => {
-            dispatch(addNewTweetThunk(tweet))
-        },
+        newTweet: (tweet) => dispatch(addNewTweetThunk(tweet)),
         get_tweets: () => dispatch(get_tweetsThunk())
     }
 }

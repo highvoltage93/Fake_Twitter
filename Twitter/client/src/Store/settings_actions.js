@@ -18,3 +18,17 @@ export const upload_avatar_THUNK = (ava) => dispatch => {
             console.log(res)
         })
 } 
+
+export const upload_poster_THUNK = (poster) => dispatch => {
+    let formdata = new FormData()
+    formdata.append("poster", poster)
+    axios
+        .patch('/users/poster_photo/', formdata, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+        .then(res => {
+            console.log(res)
+        })
+} 

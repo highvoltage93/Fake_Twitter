@@ -4,7 +4,7 @@ import Loader from '../Pictures/preloader.gif'
 const Preloader = () => {
     return (
         <div style={mystyle} className="preloader">
-            <img src={Loader} alt=""/>
+            <img style={imgStyle} src={Loader} alt=""/>
         </div>
     );
 }
@@ -20,4 +20,7 @@ const mystyle = {
     alignItems: 'center'
   };
 
+  const imgStyle ={
+      width: '400px'
+  }
 export default Preloader;

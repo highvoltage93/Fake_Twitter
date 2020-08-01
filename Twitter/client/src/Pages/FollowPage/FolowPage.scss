@@ -1,0 +1,29 @@
+@import '../../App.scss';
+
+.follow_panel{
+    display: flex;
+
+    p{
+        width: 50%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $grey-color;
+        font-size: 13x;
+        font-weight: 700;
+        border-bottom: 2px solid $light-blue-color2;
+        transition: .2s all;
+        cursor: pointer;
+        &.active{
+            color: $blue-color2;
+            border-bottom: 2px solid $blue-color2;
+            transition: .2s all;
+        }
+    }
+
+}
+
+.follow_content{
+    padding-top: 10px;
+}

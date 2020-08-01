@@ -15,6 +15,7 @@ import { connect } from 'react-redux';
 import InfoContentContainer from './Pages/InfoContent/InfoContentContainer';
 import SettingsPageContainer from './Pages/SettingsPage/SettingsPageContainer';
 import Modal from './Components/Modal/Modal';
+import FollowPageContainer from './Pages/FollowPage/FollowPageContainer';
 
 
 function App(props) {
@@ -47,6 +48,7 @@ function App(props) {
               <div className="app-main-content">
                 <Route path="/profile/:profileID?" component={MainpageContainer} />
                 <Route path="/settings" component={SettingsPageContainer} />
+                <Route exact path="/:profileID/" component={FollowPageContainer} />
                 {
                   auth
                     ? <Route exact path="/" component={My_TweetsContainer} />
@@ -54,7 +56,6 @@ function App(props) {
                 }
               </div>
               <div className="app-dop-content">
-              {/* <Route path="/" component={InfoContentContainer} /> */}
                 <InfoContentContainer/>
               </div>
 

@@ -4,7 +4,7 @@ import Button from '../../Components/UI/Button/Button'
 import TweetContainer from '../../Components/Tweet/TweetContainer'
 import Preloader from '../../Uttils/Preloader/Preloader'
 
-const My_Tweets = ({ user, avatar, fullName, newTweet, tweets }) => {
+const My_Tweets = React.memo(({ user, avatar, fullName, newTweet, tweets }) => {
 
     const [textValue, setTextValue] = useState('');
     let onSubmitForm = (e) => {
@@ -39,7 +39,15 @@ const My_Tweets = ({ user, avatar, fullName, newTweet, tweets }) => {
             {tweets.length === 0 && <h3>You have 0 Tweets</h3>}
             {
                 tweets
-                    ? tweets.map(el => <TweetContainer
+                    ? tweets.sort((a, b) => {
+                        if (a.pinned > b.pinned) {
+                            return -1
+                        }
+                        if (a.pinned < b.pinned) {
+                            return 1;
+                        }
+                        return 1;
+                    }).map(el => <TweetContainer
                         key={el._id}
                         id={el._id}
                         name={fullName}
@@ -48,11 +56,12 @@ const My_Tweets = ({ user, avatar, fullName, newTweet, tweets }) => {
                         ava={avatar}
                         likes={el.likes}
                         pinned={el.pinned}
+                        authorID={user._id}
                     />)
                     : <Preloader />
             }
         </div>
     );
-}
+})
 
 export default My_Tweets;
