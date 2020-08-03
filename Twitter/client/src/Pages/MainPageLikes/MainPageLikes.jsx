@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import Tweet from '../../Components/Tweet/Tweet';
 import { connect } from 'react-redux'
 import { get_likes_tweets_Thun } from '../../Store/tweet_actions';
 import TweetContainer from '../../Components/Tweet/TweetContainer';
@@ -17,10 +16,12 @@ const MainPageLikes = ({ likes_tweets,authID, name, ava, id, loading_likes_tweet
                     return <TweetContainer
                         id={el._id}
                         key={el._id}
+                        tweet_author={el.tweet_author}
                         name={el.tweet_author.fullName}
                         text={el.tweet_text}
                         date={el.tweet_date}
                         ava={el.tweet_author.avatar}
+                        tweet_img={el.tweet_img}
                         likes={el.likes}
                         pinned={el.pinned}
                         authID={authID}

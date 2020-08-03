@@ -3,10 +3,14 @@ const Tweet = require('../models/Tweet')
 const { populate } = require('../models/User')
 
 module.exports.add_new_tweet = async (req, res) => {
+    let user = await User.findById(req.user.id)
+
     const newTweet = await new Tweet({
-        tweet_img: req.file ? req.file.path : '',
-        tweet_text: req.body.tweet,
-        tweet_author: req.user.id
+        tweet_img: req.file ? `http://localhost:5678/` + req.file.path : '',
+        tweet_text: req.body.tweet_text,
+        tweet_author: req.user.id,
+        tweet_author_avatar: user.avatar,
+        tweet_author_fullName: user.fullName
     })
 
     let updateUserTweets = await User.findOneAndUpdate(
@@ -40,6 +44,7 @@ module.exports.delete_tweet = async (req, res) => {
         )
 
         res.status(200)
+        res.send(tweet)
     } catch (err) {
         console.log(err)
     }
@@ -108,8 +113,6 @@ module.exports.dislike = async (req, res) => {
 module.exports.get_likes_tweets = async (req, res) => {
     let tweets = await User
         .findById(req.body.userID)
-        // .select('user_likes')
-        // .populate('user_likes')
 
         .populate({
             path: 'user_likes',
@@ -120,4 +123,16 @@ module.exports.get_likes_tweets = async (req, res) => {
         .sort({ tweet_date: -1 })
 
     res.status(200).send(tweets)
+}
+
+module.exports.get_all_tweets_follow = async (req, res) => {
+
+    let userTweets = await Tweet.find({ tweet_author: req.user.id }).sort({ tweet_date: -1 })
+
+    let user = await User
+        .find({followers: req.user.id})
+        .populate('tweets')
+        .sort({ tweet_date: -1 })
+       
+    res.status(200).send({userTweets, user})
 }

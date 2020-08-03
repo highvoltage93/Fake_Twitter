@@ -11,11 +11,8 @@ import Button from '../../Components/UI/Button/Button'
 import Modal from '../../Components/Modal/Modal';
 import UploadFile from '../../Components/UploadFile/UploadFile';
 
-// deleting user from props
 
 const MainPage = React.memo(({ follow, follow_disable, unfollow, user, tweets, authID, user_profile, modal_handler, isLoading, ...props }) => {
-
-   
 
     if (!user_profile || !isLoading) return <Preloader />
 
@@ -68,9 +65,11 @@ const MainPage = React.memo(({ follow, follow_disable, unfollow, user, tweets, a
                             }).map(el => <TweetContainer
                                 key={el._id}
                                 id={el._id}
+                                tweet_author={el.tweet_author}
                                 name={user_profile.fullName}
                                 text={el.tweet_text}
                                 date={el.tweet_date}
+                                tweet_img={el.tweet_img}
                                 ava={user_profile.avatar}
                                 likes={el.likes}
                                 pinned={el.pinned}
@@ -94,3 +93,10 @@ const MainPage = React.memo(({ follow, follow_disable, unfollow, user, tweets, a
 })
 
 export default MainPage;
+
+// 732 msScripting
+// 48 msRendering
+
+
+// 396 msScripting
+// 113 msRendering

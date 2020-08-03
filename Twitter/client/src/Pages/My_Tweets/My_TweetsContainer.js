@@ -1,19 +1,20 @@
 import React, { useEffect } from 'react';
 import My_Tweets from './My_Tweets';
 import { connect } from 'react-redux';
-import { addNewTweetThunk, get_tweetsThunk } from '../../Store/tweet_actions';
+import { addNewTweetThunk, get_tweetsThunk, get_all_tweets_follow_THUNK } from '../../Store/tweet_actions';
 
-const My_TweetsContainer = (props) => {
+const My_TweetsContainer = React.memo((props) => {
 
     useEffect(() => {
-        props.get_tweets()
+        // props.get_tweets()
+        props.get_all_tweets()
     }, [props.tweets])
 
     return <My_Tweets {...props} />
-}
+})
 
 let mapStateToProps = state => {
-    return{
+    return {
         user: state.auth.user,
         avatar: state.auth.avatar,
         fullName: state.auth.fullName,
@@ -22,9 +23,10 @@ let mapStateToProps = state => {
 }
 
 let mapDispatchToProps = (dispatch) => {
-    return{
+    return {
         newTweet: (tweet) => dispatch(addNewTweetThunk(tweet)),
-        get_tweets: () => dispatch(get_tweetsThunk())
+        get_tweets: () => dispatch(get_tweetsThunk()),
+        get_all_tweets: () => dispatch(get_all_tweets_follow_THUNK())
     }
 }
 

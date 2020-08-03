@@ -52,7 +52,7 @@ function App(props) {
                 {
                   auth
                     ? <Route exact path="/" component={My_TweetsContainer} />
-                    : <Route exact path="/explore" component={ExploreContainer} />
+                    : <Route exact path="/" component={ExploreContainer} />
                 }
               </div>
               <div className="app-dop-content">

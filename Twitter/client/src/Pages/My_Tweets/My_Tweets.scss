@@ -17,7 +17,7 @@
         padding: 10px;
         display: flex;
 
-        img{
+        img.ava{
             width: 50px;
             height: 50px;
             border-radius: 100%;
@@ -45,6 +45,20 @@
     }
     &_panel{
         display: flex;
+        justify-content: space-between;
+
+        &_icons{
+            display: flex;
+
+            svg{
+                width: 20px;
+                fill: $blue-color;
+                cursor: pointer;
+                margin-right: 10px;
+            }
+
+        }
+
     }
 }
 
@@ -57,4 +71,18 @@
 .App.twilight textarea{
     background-color: rgb(21, 24, 28);
     color: #ffffff;
+}
+
+.picture{
+    height: 285px;
+    width: 100%;
+    border-radius: 10px;
+    border: 0;
+    margin-bottom: 10px;
+}
+
+.label{
+    input{
+        display: none;
+    }
 }

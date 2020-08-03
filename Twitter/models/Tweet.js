@@ -17,6 +17,12 @@ const TweetSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
+    tweet_author_avatar: {
+        type: String
+    },
+    tweet_author_fullName: {
+        type: String
+    },
     pinned: {
         type: Boolean,
         default: false
