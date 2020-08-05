@@ -8,7 +8,7 @@ import InputCircle from '../UI/Input/InputCircle';
 import Button from '../UI/Button/Button';
 import USER_LOGO from '../../Uttils/Pictures/user.jpg'
 
-const Header = ({ auth, avatar, fullName,search_users, logout, search }) => {
+const Header = ({ auth, avatar, fullName, search_users, logout, search }) => {
     let searchHandler = (e) => {
         search(e.target.value)
     }
@@ -23,24 +23,27 @@ const Header = ({ auth, avatar, fullName,search_users, logout, search }) => {
                             : <NavLink to="/explore" className="logo"><FontAwesomeIcon icon={faHashtag} /></NavLink>
                     }
                     <div>
-                    <InputCircle
-                        onChange={searchHandler}
-                        type="text"
-                        placeholder="Search in Twitter"
-                        name="search"
-                    />
-                    <div className="search">
-                        <ul>
-                            {
-                                search_users && search_users.map(el => {
-                                    return <li>
-                                        <img src={el.avatar} alt=""/>
-                                        <span>{el.fullName}</span>
-                                    </li>
-                                })
-                            }
-                        </ul>
-                    </div>
+                        <InputCircle
+                            onChange={searchHandler}
+                            type="text"
+                            placeholder="Search in Twitter"
+                            name="search"
+                        />
+                        <div className="search">
+                            <ul>
+                                {
+                                    search_users && search_users.map(el => {
+                                        return <li>
+                                            <NavLink to={`/profile/${el._id}`}>
+                                                <img src={el.avatar} alt="" />
+                                                <span>{el.fullName}</span>
+                                            </NavLink>
+
+                                        </li>
+                                    })
+                                }
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 {

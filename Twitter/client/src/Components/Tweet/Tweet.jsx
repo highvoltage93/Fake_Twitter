@@ -57,7 +57,8 @@ const Tweet = React.memo(({
                 <img src={ava} alt="" />
                 <div>
                     <NavLink to="/">{name}</NavLink>
-                    <p>{formatDistanceToNow(Date.parse(date), { includeSeconds: true, addSuffix: true })}</p>
+                    <p>{formatDistanceToNow(Date.parse(date), { includeSeconds: true })}</p>
+                    {/* , addSuffix: true */}
                 </div>
                 <span className="tweet_top_dot" onClick={() => setDopNav(true)}></span>
                 <div

@@ -43,6 +43,8 @@ textarea::placeholder{
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  position: relative;
+  padding-top: 50px;
 }
 .app_content{
   width: calc(100% - 100px);
@@ -54,6 +56,8 @@ textarea::placeholder{
 }
 .app-dop-content{
   width: 37%;
+  position: fixed;
+  right: 0;
 }
 .App.def{
   background: #ffffff;

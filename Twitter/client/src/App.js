@@ -33,7 +33,7 @@ function App(props) {
   return (
     <>
       <div className="App" className={`App ${props.background_color}`}>
-        <Modal/>
+        <Modal />
         <HeaderContainer />
         <div className="container">
           <Route exact path="/explore" component={ExploreContainer} />
@@ -45,23 +45,23 @@ function App(props) {
             {auth && <NavBar />}
             {
               auth && <div className="app_content">
-              <div className="app-main-content">
-                <Route path="/profile/:profileID?" component={MainpageContainer} />
-                <Route path="/settings" component={SettingsPageContainer} />
-                <Route exact path="/:profileID/" component={FollowPageContainer} />
-                {
-                  auth
-                    ? <Route exact path="/" component={My_TweetsContainer} />
-                    : <Route exact path="/" component={ExploreContainer} />
-                }
-              </div>
-              <div className="app-dop-content">
-                <InfoContentContainer/>
-              </div>
+                <div className="app-main-content">
+                  <Route path="/profile/:profileID?" component={MainpageContainer} />
+                  <Route exact path="/settings" component={SettingsPageContainer} />
+                  <Route exact path="/follow/:profileID?" component={FollowPageContainer} />
+                  {
+                    auth
+                      ? <Route exact path="/" component={My_TweetsContainer} />
+                      : <Route exact path="/" component={ExploreContainer} />
+                  }
+                </div>
+                <div className="app-dop-content">
+                  <InfoContentContainer />
+                </div>
 
-            </div>
+              </div>
             }
-            
+
           </div>
 
         </div>

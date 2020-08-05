@@ -5,7 +5,7 @@ import Explore_User from '../../Components/Explore_User/Explore_User';
 import Input from '../../Components/UI/Input/Input';
 import Button from '../../Components/UI/Button/Button';
 
-const Explore = ({ new_users, login,last_tweets }) => {
+const Explore = ({ new_users, login, last_tweets }) => {
     console.log(last_tweets);
     let onSubmitForm = (e) => {
         e.preventDefault()
@@ -22,10 +22,11 @@ const Explore = ({ new_users, login,last_tweets }) => {
     let new_tweets = last_tweets.map(el => {
         return <TweetExplore
             key={el._id}
-            ava={el.ava}
+            name={el.tweet_author_fullName}
+            ava={el.tweet_author_avatar}
             text={el.tweet_text}
             time={el.tweet_date}
-            name={el.name}
+            tweet_img={el.tweet_img}
         />
     })
 

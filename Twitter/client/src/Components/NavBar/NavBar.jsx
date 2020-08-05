@@ -11,7 +11,7 @@ const NavBar = ({authID}) => {
         <nav className="nav">
             <NavLink exact to='/'><FontAwesomeIcon icon={faHome} /></NavLink>
             <NavLink to={`/profile/${authID}`}><FontAwesomeIcon icon={faUser} /></NavLink>
-            <NavLink to={`/${authID}/`}><FontAwesomeIcon icon={faUsers} /></NavLink>
+            <NavLink to={`/follow/${authID}`}><FontAwesomeIcon icon={faUsers} /></NavLink>
             <NavLink to='/bookmarks'><FontAwesomeIcon icon={faStar} /></NavLink>
             <NavLink to='/dialogs'><FontAwesomeIcon icon={faEnvelope} /></NavLink>
             <NavLink to='/settings'><FontAwesomeIcon icon={faDiceThree} /></NavLink>

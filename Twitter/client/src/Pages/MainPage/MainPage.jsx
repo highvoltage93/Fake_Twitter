@@ -42,8 +42,8 @@ const MainPage = React.memo(({ follow, follow_disable, unfollow, user, tweets, a
                     <p className="main_data_joined"><FontAwesomeIcon icon={faCalendar} />Joined {format(Date.parse(user_profile.joined), 'MMMM yyyy')}</p>
                     <span className="main_data_location"><FontAwesomeIcon icon={faLocationArrow} />{user_profile.location}</span>
                     <div className="main_data_fol">
-                        <NavLink to={`/${user_profile._id}/`}><span>{user_profile.following.length}</span>Following</NavLink>
-                        <NavLink to={`/${user_profile._id}/`}><span>{user_profile.followers.length}</span>Followers</NavLink>
+                        <NavLink to={`/follow/${user_profile._id}/`}><span>{user_profile.following.length}</span>Following</NavLink>
+                        <NavLink to={`/follow/${user_profile._id}/`}><span>{user_profile.followers.length}</span>Followers</NavLink>
                     </div>
                 </div>
                 <div className="main_panel">

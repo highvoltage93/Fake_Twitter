@@ -21,7 +21,6 @@ const Settings = (props) => {
 
 
 let Inputs = ({ bg, handleOptionChange, bg_color }) => {
-    debugger
     return (<form className="bg">
         <>
             <input type="radio" name="bg" value='def' id="def" checked={bg_color === 'def'} onChange={handleOptionChange} />

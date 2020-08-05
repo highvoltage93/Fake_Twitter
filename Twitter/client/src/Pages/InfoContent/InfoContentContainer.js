@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import InfoContent from './InfoContent';
 import { get_users_for_content_THUNK, unfollow_THUNK, follow_THUNK } from '../../Store/users_action';
@@ -6,7 +6,7 @@ import { get_users_for_content_THUNK, unfollow_THUNK, follow_THUNK } from '../..
 const InfoContentContainer = (props) => {
 
     useEffect(() => {
-       props.get_users()
+        props.get_users()
     }, [])
 
     return <InfoContent {...props} />
@@ -15,7 +15,9 @@ const InfoContentContainer = (props) => {
 let mapStateToProps = state => {
     return {
         users_content: state.users.users_content,
-        authUser: state.auth.user
+        authUser: state.auth.user,
+        user_profile: state.users.user_profile,
+        user: state.auth.user
     }
 }
 

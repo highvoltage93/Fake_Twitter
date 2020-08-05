@@ -10,7 +10,8 @@ module.exports.add_new_tweet = async (req, res) => {
         tweet_text: req.body.tweet_text,
         tweet_author: req.user.id,
         tweet_author_avatar: user.avatar,
-        tweet_author_fullName: user.fullName
+        tweet_author_fullName: user.fullName,
+        media_img: req.file ? true : false
     })
 
     let updateUserTweets = await User.findOneAndUpdate(

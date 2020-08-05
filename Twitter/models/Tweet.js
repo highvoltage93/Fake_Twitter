@@ -29,7 +29,11 @@ const TweetSchema = new Schema({
     },
     likes: [
         {type: Schema.Types.ObjectId, ref: 'User'}
-    ]
+    ],
+    media_img: {
+        type: Boolean,
+        default: false
+    }
 
 })
 

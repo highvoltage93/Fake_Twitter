@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import './My_Tweets.scss'
 import Button from '../../Components/UI/Button/Button'
 import TweetContainer from '../../Components/Tweet/TweetContainer'
@@ -19,6 +19,7 @@ const My_Tweets = React.memo(({ user, avatar, fullName, newTweet, tweets }) => {
         newTweet(tweet)
         setTextValue('')
         setPicture()
+        setInfo('')
     }
 
     let pictureHandler = (e) => {
@@ -43,7 +44,7 @@ const My_Tweets = React.memo(({ user, avatar, fullName, newTweet, tweets }) => {
                             onChange={e => setTextValue(e.target.value)}
                             placeholder="Whats happening?"
                         ></textarea>
-                     { picture && <img className="picture" src={picture} alt="" />}
+                        {picture && <img className="picture" src={picture} alt="" />}
                         <div className="tweet_wrap_panel">
                             <div className="tweet_wrap_panel_icons">
                                 <label htmlFor="picture" className="label">
@@ -62,14 +63,6 @@ const My_Tweets = React.memo(({ user, avatar, fullName, newTweet, tweets }) => {
             {
                 tweets
                     ? tweets.sort((a, b) => {
-                        if (a.pinned > b.pinned) {
-                            return -1
-                        }
-                        if (a.pinned < b.pinned) {
-                            return 1;
-                        }
-                        return 1;
-                    }).sort((a, b) => {
                         if (a.tweet_date > b.tweet_date) {
                             return -1
                         }
@@ -97,3 +90,23 @@ const My_Tweets = React.memo(({ user, avatar, fullName, newTweet, tweets }) => {
 })
 
 export default My_Tweets;
+
+// tweets.sort((a, b) => {
+//     if (a.pinned > b.pinned) {
+//         return -1
+//     }
+//     if (a.pinned < b.pinned) {
+//         return 1;
+//     }
+//     return 1;
+// }).
+
+// sort((a, b) => {
+//     if (a.tweet_date > b.tweet_date) {
+//         return 1
+//     }
+//     if (a.tweet_date < b.tweet_date) {
+//         return -1;
+//     }
+//     return 1;
+// }).
