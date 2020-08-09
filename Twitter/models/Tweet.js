@@ -28,9 +28,13 @@ const TweetSchema = new Schema({
         default: false
     },
     likes: [
-        {type: Schema.Types.ObjectId, ref: 'User'}
+        { type: Schema.Types.ObjectId, ref: 'User' }
     ],
     media_img: {
+        type: Boolean,
+        default: false
+    },
+    retweet: {
         type: Boolean,
         default: false
     }

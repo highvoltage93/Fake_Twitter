@@ -3,25 +3,24 @@ import './InfoContent.scss'
 import { NavLink } from 'react-router-dom';
 import Button from '../../Components/UI/Button/Button'
 
-const InfoContent = ({ id, authUser, users_content, unfollow, follow, user_profile, user }) => {
+const InfoContent = React.memo(({ id, authUser, users_content, unfollow, follow, user_profile, user }) => {
     return (
         <div className="info">
 
             <div className="info_gallery">
-                <h1>Gallery</h1>
                 <div className="info_gallery_block">
                     {
                         user_profile
                             ? user_profile.tweets.map(el => {
                                 if (el.tweet_img) {
-                                    return <span className="info_gallery_block_img">
+                                    return <span key={el._id} className="info_gallery_block_img">
                                         <img src={el.tweet_img} alt="" />
                                     </span>
                                 } 
                             })
                             : user.tweets.map(el => {
                                 if (el.tweet_img) {
-                                    return <span className="info_gallery_block_img">
+                                    return <span key={el._id} className="info_gallery_block_img">
                                         <img src={el.tweet_img} alt="" />
                                     </span>
                                 }
@@ -48,7 +47,7 @@ const InfoContent = ({ id, authUser, users_content, unfollow, follow, user_profi
 
         </div>
     );
-}
+})
 
 export default InfoContent;
 

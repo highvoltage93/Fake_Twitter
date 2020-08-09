@@ -1,7 +1,7 @@
 import React from 'react';
 import './Settings.scss'
 
-const Settings = (props) => {
+const Settings = React.memo((props) => {
 
     const [bg, setBg] = React.useState('def')
 
@@ -16,7 +16,7 @@ const Settings = (props) => {
             <Inputs bg={bg} handleOptionChange={handleOptionChange} bg_color={props.bg_color}/>
         </>
     );
-}
+})
 
 
 

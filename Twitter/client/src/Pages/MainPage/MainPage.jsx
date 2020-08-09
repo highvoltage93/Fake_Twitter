@@ -10,6 +10,7 @@ import MainPageLikes from '../MainPageLikes/MainPageLikes';
 import Button from '../../Components/UI/Button/Button'
 import Modal from '../../Components/Modal/Modal';
 import UploadFile from '../../Components/UploadFile/UploadFile';
+import MainPageMedia from '../MainPageMedia/MainPageMedia';
 
 
 const MainPage = React.memo(({ follow, follow_disable, unfollow, user, tweets, authID, user_profile, modal_handler, isLoading, ...props }) => {
@@ -27,7 +28,7 @@ const MainPage = React.memo(({ follow, follow_disable, unfollow, user, tweets, a
                     <h1>{user_profile.fullName}</h1>
                     <p>{user_profile.tweets && user_profile.tweets.length}Tweets</p>
                 </div>
-                <img className="main_poster" src={user_profile.poster} />
+                <img className={user_profile.poster === "" ? "main_poster wiolet" : "main_poster"} src={user_profile.poster === "" ? '' : user_profile.poster} />
                 <div className="main_info">
                     <img className="main_info_avatar" src={user_profile.avatar} alt="" />
                     {authID != user_profile._id ? btnFollow : <Button onClick={modal_handler} color="yellow">Set ava</Button>}
@@ -48,7 +49,7 @@ const MainPage = React.memo(({ follow, follow_disable, unfollow, user, tweets, a
                 </div>
                 <div className="main_panel">
                     <NavLink exact to={`/profile/${user_profile._id}/`}>Tweets</NavLink>
-                    <NavLink to="app/profile">Media</NavLink>
+                    <NavLink to={`/profile/${user_profile._id}/media`}>Media</NavLink>
                     <NavLink to={`/profile/${user_profile._id}/likes`}>Likes</NavLink>
                 </div>
                 <div className="main_content_tweets">
@@ -84,6 +85,7 @@ const MainPage = React.memo(({ follow, follow_disable, unfollow, user, tweets, a
                         id={user_profile._id}
                         authID={authID}
                     />} />}
+                    {<Route path="/profile/:profileID?/media" component={() => <MainPageMedia />} />}
                 </div>
             </div>
             <div className="main_dop"></div>

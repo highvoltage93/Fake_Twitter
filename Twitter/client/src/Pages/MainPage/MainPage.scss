@@ -92,6 +92,7 @@
                 font-size: 16px;
                 color: $grey-color;
                 margin-right: 20px;
+                border-bottom: 1px solid transparent;
                 span{
                     color: $black-color;
                     font-weight: 900;
@@ -130,4 +131,8 @@
     }
 
     
+}
+
+.wiolet{
+    background-color: $blue-color;
 }

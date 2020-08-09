@@ -1,5 +1,6 @@
 h1{
     font-size: 20px;
+    margin-top: 20px;
 }
 .bg{
     display: flex;
@@ -61,4 +62,11 @@ h1{
     input:checked+label{
         border:2px solid rgb(23, 191, 99);
     }
+}
+
+.App.twilight .def span{
+    color: #15202b !important;
+}
+.App.night .def span{
+    color: black !important;
 }

@@ -1,5 +1,7 @@
 @import '../../App.scss';
 
+
+
 header{
     height: 50px;
     display: flex;
@@ -88,4 +90,10 @@ header{
 .hed_left{
     display: flex;
     position: relative;
+}
+.twilight header{
+    background: #15202b;
+}
+.night header{
+    background: black;
 }

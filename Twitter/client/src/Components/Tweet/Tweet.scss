@@ -157,6 +157,8 @@
     }
 }
 .App.night .tweet:hover,
+.App.night .tweet_top_dop.visible,
+.App.twilight .tweet_top_dop.visible,
 .App.twilight .tweet:hover{
     background-color: rgb(21, 24, 28);
 }

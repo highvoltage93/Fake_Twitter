@@ -15,6 +15,7 @@
     padding: 10px;
     border-bottom:1px solid  rgb(230, 236, 240);
     position: relative;
+    max-width: 500px;
     &:hover{
         background-color: $light-blue-color;
     }
@@ -45,7 +46,7 @@
 }
 .info_gallery{
     &_block{
-
+        max-width: 500px;
         display: flex;
         flex-wrap: wrap;
         margin-bottom: 25px;
@@ -67,4 +68,9 @@
             }
         }
     }
+}
+
+.twilight .info_user:hover,
+.night .info_user:hover{
+    background-color: rgba(166, 226, 241, 0.753)
 }

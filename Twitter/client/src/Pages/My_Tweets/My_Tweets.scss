@@ -24,7 +24,7 @@
             margin-right: 10px;
         }
 
-        div{
+        div:not(.button_wrap){
             width: 100%;
         }
         form{
@@ -85,4 +85,13 @@
     input{
         display: none;
     }
+}
+.error_tweets{
+    text-align: center;
+    margin-top: 20px;
+    padding-bottom: 30px;
+    font-size: 25px;
+}
+.button_wrap{
+    width: auto;
 }
